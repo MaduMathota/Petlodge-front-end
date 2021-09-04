@@ -1,0 +1,26 @@
+<div class="card filters">
+
+    <div class="card-header">
+      <strong>Filters</strong>
+    </div>
+  
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <select name="ictgory"  class="form-control" name="ictgry" [(ngModel)]="category" required #ictgry = "ngModel"
+          [class.is-invalid]="ictgry.invalid && ictgry.touched">
+          <option [ngValue]="undefined" hidden>Select Category</option>
+            <option >pet feeder</option>
+            <option >pet accessories</option>
+            <option >pet cages and carrier</option>
+            <option >pet toy</option>
+            <option >pet grooming</option>
+            <option >pet leash</option>
+          </select>
+        </div>
+  
+        <button class="btn btn-primary" (click)="getcategory()">Search Category</button>
+      </form>
+    </div>
+  </div>
+  

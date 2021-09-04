@@ -1,0 +1,186 @@
+
+
+            <div id="sidebar" class="side">
+                <li id="id_a"><button class="idbtn" (click)="toHome()" routerLink = "/veterinarianwebpage" routerLinkActive = "active" >Home</button></li>
+                <li id="id_a"><button class="idbtn" (click)="toAppointment()"   >Appointments</button></li>
+                <li id="id_a"><button class="idbtn" (click)="toAboutme()"  routerLinkActive = "active" >About Me</button></li>
+                <li id="id_a"><button class="idbtn" (click)="govideocall()"  routerLinkActive = "active">Video call</button></li>
+                <li id="id_a"><button class="idbtn" (click)="toPassword()"  routerLinkActive = "active">Change password</button></li>
+                <li id="id_a"><button class="idbtn" (click)="logout()"  routerLinkActive = "active">Logout</button></li>
+            </div>
+
+              <div style="margin-left:18%;padding:1px 16px;height:1000px;">
+
+                <section id="home" class="welcome">
+                    <div style="position: absolute;bottom: 30vh;left: 16px;font-size: 5vw;color: slateblue;">
+                      <p>Welcome</p>
+                    </div>
+                    <div style="position: absolute;bottom: 23vh;left: 16px;font-size: 3vw;color: springgreen;">
+                      <p>Dr.{{veterinarian.name}}</p>
+                    </div>
+                </section>
+
+                <section id="appointment">
+
+                  <div class="row">
+                    <div class="col-md-10">
+                  <p style="font-size: 2vw;color: rgb(23, 125, 185);">Appointments</p>
+                </div>
+                <div class="col-md-2">
+                  <button class="btn btn-danger" (click)="removeapoinments()">remove appointments</button>
+                </div>
+                </div>
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th>Id</th>
+                            <th>Date</th>
+                            <th>Time</th>   
+                            <th>Pet Id</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let apt of appointments" (click)="petdetails(apt.appointPetid)">
+                            <td>{{apt.id}}</td>
+                            <td>{{apt.date}}</td>
+                            <td>{{apt.time}}</td>
+                            <td>{{apt.appointPetid}}</td>
+                          </tr>
+                        </tbody>
+                  
+                      </table>
+                </section>
+                <br><br>
+                <section id="aboutme" class="formcontainer">
+
+                  <p style="font-size: 2vw;color: rgb(23, 125, 185);">About Me</p>
+
+            <div class="row">
+
+                <div class="col-md-6">
+              
+                  <!-- <small class="text-danger">{{errormessege}}</small> -->
+                   <br>
+                  <div class="form-group">
+                      <label for="UId">User Id</label>
+                      <input type="text" id = "inp" class="form-control" name="userid" [(ngModel)]="veterinarian.id" required #userid = "ngModel" 
+                      [class.is-invalid]="userid.invalid && userid.touched">
+                      <small [class.d-none]="userid.valid || userid.untouched" class="text-danger" >you should enter your user Id !</small>
+                  </div>
+              
+                  <br>
+                    <div class="form-group">
+                      <label for="uname">Name</label>
+                      <input type="text" id= "inp" class="form-control" name="username" [(ngModel)]="veterinarian.name" required #username = "ngModel"
+                      [class.is-invalid]="username.invalid && username.touched">
+                      <small [class.d-none]="username.valid || username.untouched" class="text-danger" > Enter your Name !</small>
+                    </div>
+              
+                    <br>
+                    <div class="form-group">
+                      <label for="uavailble">Availability</label>
+                      <input type="text" id= "inp" class="form-control" name="useravailability" [(ngModel)]="veterinarian.status" required #useravailability = "ngModel"
+                      [class.is-invalid]="useravailability.invalid && useravailability.touched">
+                      <small [class.d-none]="useravailability.valid || useravailability.untouched" class="text-danger" > Enter Availability !</small>
+                    </div>
+                    
+                    <br>
+                    <div class="form-group">
+                        <label for="uaddress">Address</label>
+                        <input type="text" id= "inp" class="form-control" name="useraddress" [(ngModel)]="veterinarian.address" required #useraddress = "ngModel"
+                        [class.is-invalid]="useraddress.invalid && useraddress.touched">
+                        <small [class.d-none]="useraddress.valid || useraddress.untouched" class="text-danger" > Enter your Current Address !</small>
+                      </div>
+
+                      </div>
+
+                      <div class="col-md-6">
+                        <br>
+                      <div class="form-group">
+                        <label for="ucontact">Contact No</label>
+                        <input type="text" id= "inp" class="form-control" name="usercontactno" [(ngModel)]="veterinarian.contactno" required #usercontactno= "ngModel"
+                        [class.is-invalid]="usercontactno.invalid && usercontactno.touched">
+                        <small [class.d-none]="usercontactno.valid || usercontactno.untouched" class="text-danger" >Enter your phone number !</small>
+                      </div>
+                      
+                      <br>
+                      <div class="form-group">
+                        <label for="vcslreg">VCSL registration no</label>
+                        <input type="text" id= "inp" class="form-control" name="uservcsl" [(ngModel)]="veterinarian.vcslregistrationno" required #uservcsl= "ngModel"
+                        [class.is-invalid]="uservcsl.invalid && uservcsl.touched">
+                        <small [class.d-none]="uservcsl.valid || uservcsl.untouched" class="text-danger" >Enter vcsl registration number !</small>
+                      </div>
+              
+                     
+                      <div class="form-group">
+                        <label for="email">email</label>
+                        <input type="email" id= "inp" class="form-control" name="useremail" [(ngModel)]="veterinarian.email" required #useremail = "ngModel"
+                        [class.is-invalid]="useremail.invalid && useremail.touched">
+                        <small [class.d-none]="useremail.valid || useremail.untouched" class="text-danger" >Enter a email !</small>
+                      </div>
+
+                      <br>
+                      <div class="row">
+                        <div class="col-md-5"><button class="btn btn-primary" (click)="updatevet()">Update</button></div>
+                        <!-- <div class="col-md-7"><button class="btn btn-danger" (click)="changepsw()" >Change password</button></div> -->
+                      </div>
+                      <br>
+
+                      </div>
+              
+              </div>
+            </section>
+
+
+              <br><br>
+              
+              <section id="password" class="formcontainer">
+                <p style="font-size: 2vw;color: rgb(23, 125, 185);">Change password</p>
+              <br>
+
+              <form #passwordchangeform= "ngForm" (ngSubmit)="changepsw()">
+              <div class="row">
+                
+                <div class="col-md-4">
+                  <div class="form-group" >
+                    <label for="upassword">Password</label>
+                    <input type="password" id= "inp" class="form-control" name="userpassword" [(ngModel)]="veterinarian.password" required #userpassword = "ngModel"
+                    [class.is-invalid]="userpassword.invalid && userpassword.touched">
+                    <small [class.d-none]="userpassword.valid || userpassword.untouched" class="text-danger" >Enter a Password !</small>
+                  </div>
+                  </div>
+          
+            <div class="col-md-4">
+
+                  <div class="form-group">
+                    <label for="upasswordconfirm">Confirm Password</label>
+                    <input type="password" id= "inp" class="form-control" name="userpasswordconfirm" [(ngModel)] = "veterinarian.confirmpsw" required #userpasswordconfirm = "ngModel"
+                    [class.is-invalid]="userpasswordconfirm.invalid && userpasswordconfirm.touched">
+                    <small [class.d-none]="(userpasswordconfirm.value == userpassword.value) || userpasswordconfirm.untouched" class="text-danger" >Password and Confirm Password are not match.check again !</small>
+                  </div>
+              </div>
+
+              <div class="col-md-4">
+                <br>
+              <button [disabled] ="passwordchangeform.form.invalid" type="submit" class="btn btn-danger">Change password</button>
+            </div>
+
+          </div>
+          </form>
+            
+            </section>
+
+            <br><br>
+
+            <ul></ul>
+
+          </div>
+              
+           
+
+  
+
+             
+
+             
+         

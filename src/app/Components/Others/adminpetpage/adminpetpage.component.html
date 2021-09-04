@@ -1,0 +1,160 @@
+     
+            <div class="navigation">
+                <nav>
+              <ul class="nav-type">
+                <li><a href [routerLink]="['/adminpage']" class="active">Admin</a></li>
+                <li><a href [routerLink]="['/adminpetregisterpage']"  class="active1">PetRegistration</a></li>
+                <li><a href [routerLink]="['/adminpetpage']"  class="active1">Pets</a></li>
+                <li><a href [routerLink]="['/adminpetownerpage']"  class="active1">Petowners</a></li>
+                <li><a href [routerLink]="['/admincaretakerpage']"  class="active2">Caretakers</a></li>
+                <li><a href [routerLink]="['/adminjobpage']" class="active">AssignedJobs</a></li>
+                <li><a href [routerLink]="['/adminstoragekennel']"  class="active3">Storage</a></li>
+                <li><a href [routerLink]="['/adminveterinarianpage']" class="active">Veterinarians</a></li>
+                <li><a href [routerLink]="['/adminsellerpage']" class="active">Sellers</a></li>
+                <li><a href [routerLink]="['/adminitempage']" class="active">Products</a></li>
+              </ul>
+            </nav>
+            </div>
+
+          <div class="navigationtwo">
+            <nav>
+          <ul class="nav-type" id="ultwo">
+            <li><a href [routerLink]="['/adminaddtype']" class="active">AddType</a></li>
+            <li><a href [routerLink]="['/adminaddbreed']"  class="active1">AddBreed</a></li>
+            <li><a href [routerLink]="['/adminpettypes']"  class="active1">Editbreed</a></li>
+          </ul>
+        </nav>
+        </div>
+       
+
+    <div class="row">
+        <div class="col-md-{{size}}">
+        <table class="table table-striped">
+            <thead class = "thead-dark">
+                <tr>
+                    <th>Pet Id</th>
+                    <th>Petowner Id</th>
+                    <th>Pet Name</th>
+                    <th>Petowner Name</th>
+                    <th>Type</th>
+                    <th>Breed</th>
+                    <th>Medical History</th>
+                    <th>Schedule</th>
+                    <th>Personal note</th>
+                    <th>Pet Body Color</th>
+                    <th>Pet Eye Color</th>
+                    <th>Assigned Caretaker</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let petobj of pets">
+                    <td>{{petobj.petid}}</td>
+                    <td>{{petobj.petownerid}}</td>
+                    <td>{{petobj.petname}}</td>
+                    <td>{{petobj.petownername}}</td>
+                    <td>{{petobj.type}}</td>
+                    <td>{{petobj.breed}}</td>
+                    <td>{{petobj.medicalhistory}}</td>
+                    <td>{{petobj.schedule}}</td>
+                    <td>{{petobj.personalnote}}</td>
+                    <td>{{petobj.color}}</td>
+                    <td>{{petobj.eyecolor}}</td>
+                    <td>{{petobj.assignedcaretaker}}</td>
+                
+                    <td>
+                        <button class="btn btn-primary" (click) ="editpet(petobj)">Edit</button>
+                        <button class="btn btn-danger" (click) = "deletepet(petobj.petid)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+       
+        </table>
+        </div>
+        <div class="col-md-2" *ngIf="editmode">
+        
+            <div class="form-group">
+                <label for="UId">Pet Id</label>
+                <input type="text" id = "inp" class="form-control" name="petid" [(ngModel)]="pet.petid" required #petid = "ngModel" 
+                [class.is-invalid]="petid.invalid && petid.touched">
+                <small [class.d-none]="petid.valid || petid.untouched" class="text-danger" >you should enter pet Id !</small>
+            </div>
+      
+              <div class="form-group">
+                <label for="uname">Pet Name</label>
+                <input type="text" id= "inp" class="form-control" name="petname" [(ngModel)]="pet.petname" required #petname = "ngModel"
+                [class.is-invalid]="petname.invalid && petname.touched">
+                <small [class.d-none]="petname.valid || petname.untouched" class="text-danger" > Enter Pet Name !</small>
+              </div>
+
+              <div class="form-group">
+                <label for="upownername">Petowner Name</label>
+                <input type="text" id= "inp" class="form-control" name="petownername" [(ngModel)]="pet.petownername" required #petownername = "ngModel"
+                [class.is-invalid]="petownername.invalid && petownername.touched">
+                <small [class.d-none]="petownername.valid || petownername.untouched" class="text-danger" > Enter Petowner Name !</small>
+              </div>
+
+              <div class="form-group">
+                <label for="utype">Pet Type</label>
+                <input type="text" id= "inp" class="form-control" name="pettype" [(ngModel)]="pet.type" required #pettype = "ngModel"
+                [class.is-invalid]="pettype.invalid && pettype.touched">
+                <small [class.d-none]="pettype.valid || pettype.untouched" class="text-danger" > Enter pet type !</small>
+              </div>
+
+              <div class="form-group">
+                  <label for="ubreed">Breed</label>
+                  <input type="text" id= "inp" class="form-control" name="petbreed" [(ngModel)]="pet.breed" required #petbreed = "ngModel"
+                  [class.is-invalid]="petbreed.invalid && petbreed.touched">
+                  <small [class.d-none]="petbreed.valid || petbreed.untouched" class="text-danger" > Enter pet breed !</small>
+                </div>
+      
+                <div class="form-group">
+                  <label for="umhitory">Medical History</label>
+                  <input type="text" id= "inp" class="form-control" name="petmedicalhistory" [(ngModel)]="pet.medicalhistory" required #petmedicalhistory= "ngModel"
+                  [class.is-invalid]="petmedicalhistory.invalid && petmedicalhistory.touched">
+                  <small [class.d-none]="petmedicalhistory.valid || petmedicalhistory.untouched" class="text-danger" >enter pet's Medical history !</small>
+                </div>
+      
+                <div class="form-group">
+                  <label for="uschedule">Schedule</label>
+                  <input type="text" id= "inp" class="form-control" name="petschedule" [(ngModel)]="pet.schedule" required #petschedule= "ngModel"
+                  [class.is-invalid]="petschedule.invalid && petschedule.touched">
+                  <small [class.d-none]="petschedule.valid || petschedule.untouched" class="text-danger" >Enter pet schedule !</small>
+                </div>
+      
+                <div class="form-group">
+                  <label for="upersonalnote">Personal note</label>
+                  <input type="text" id= "inp" class="form-control" name="petpersonalnote" [(ngModel)]="pet.personalnote" required #petpersonalnote = "ngModel"
+                  [class.is-invalid]="petpersonalnote.invalid && petpersonalnote.touched">
+                  <small [class.d-none]="petpersonalnote.valid || petpersonalnote.untouched" class="text-danger" >Enter personalnote !</small>
+                </div>
+      
+                <div class="form-group">
+                  <label for="upcolor">Pet Body Color</label>
+                  <input type="text" id= "inp" class="form-control" name="petcolor" [(ngModel)] ="pet.color" required #petcolor = "ngModel"
+                  [class.is-invalid]="petcolor.invalid && petcolor.touched">
+                  <small [class.d-none]="petcolor.valid || petcolor.untouched" class="text-danger" >Enter pet color !</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="uecolor">Eye color</label>
+                  <input type="text" id= "inp" class="form-control" name="peteyecolor" [(ngModel)]="pet.eyecolor" required #peteyecolor= "ngModel"
+                  [class.is-invalid]="peteyecolor.invalid && peteyecolor.touched">
+                  <small [class.d-none]="peteyecolor.valid || peteyecolor.untouched" class="text-danger" >Enter pet eyecolor !</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="uassignedcare">Assigned Caretaker</label>
+                  <input type="text" id= "inp" class="form-control" name="petassignedcaretaker" [(ngModel)]="pet.assignedcaretaker" required #petassignedcaretaker = "ngModel"
+                  [class.is-invalid]="petassignedcaretaker.invalid && petassignedcaretaker.touched">
+                  <small [class.d-none]="petassignedcaretaker.valid || petassignedcaretaker.untouched" class="text-danger" >Enter personalnote !</small>
+                </div>
+        
+                <button class="btn btn-primary" (click) ="updatepet()">Update</button>
+              
+        </div>
+        </div>
+      
+        <div class="containerfloat">
+          <button id="btnfloat" class="add-to-cart" (click)="logout()">logout</button>
+        </div>

@@ -1,0 +1,48 @@
+
+<div class="row">
+    <div class="col-md-2">
+    
+    
+        <div class="card filters">
+    
+            <div class="card-header">
+              <strong>Find by sellers ...</strong>
+            </div>
+          
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="from">Seller Id</label>
+                  <input type="text" id="from" class="form-control" name="userid" [(ngModel)]="sellerid"  #userid = "ngModel">
+                </div>
+              </form>
+              
+            </div>
+          </div>
+    
+        </div>
+        
+        <div class="col-md-10">
+    
+    <div class="bg" id="cardone">
+        <ul>
+            <li *ngFor="let item of items">
+              <div class="details">
+                <h2>{{item.name}}</h2>
+                <p>{{item.price}}<br>
+                 <button class="updatebutton" (click)="toUpdatePage(item.id)">Update</button>
+                  <button class="deletebutton" (click)="toDelete(item.id)">Delete</button>
+                </p>
+                <div class="product">
+                  <img src="{{item.picByte}}">
+                </div>
+              </div>
+              
+              
+            </li>
+           
+          </ul>
+        </div>
+    
+      </div>
+      </div>

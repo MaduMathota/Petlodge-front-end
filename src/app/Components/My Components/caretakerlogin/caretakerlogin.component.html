@@ -1,0 +1,33 @@
+
+<div class="bg" >
+<div class="formcontainer" >
+<span style="text-align: center"> <h2>Caretaker Login</h2></span>
+
+<form #careloginform= "ngForm" (ngSubmit)="caretakerLogin()">
+  <small class="text-danger">{{errormessege}}</small>
+
+    <div class="form-group">
+      <label for="UId">User Id</label>
+      <input type="text" id = "inp" class="form-control" name="userid" [(ngModel)]="caretaker.caretakerId" required #userid = "ngModel" 
+      [class.is-invalid]="userid.invalid && userid.touched">
+      <small [class.d-none]="userid.valid || userid.untouched" class="text-danger" >you should enter your user Id !</small>
+    </div>
+
+    <div class="form-group">
+      <label for="Uassword">Password</label>
+      <input type="password" id= "inp" class="form-control" name="userpassword" [(ngModel)]="caretaker.carePassword" required #userpassword = "ngModel"
+      [class.is-invalid]="userpassword.invalid && userpassword.touched">
+      <small [class.d-none]="userpassword.valid || userpassword.untouched" class="text-danger" >password is requred !</small>
+    </div>
+  
+    <button [disabled] ="careloginform.form.invalid" type="submit" class="btn btn-info">Login</button>
+
+  </form>
+
+  <!--<button id="btnid" class="float-right"><small id="inp" (click)="caretakersignuppage()">New member ? register here</small></button> --> <!--below code is second way to do this-->
+  <button id="btnid" class="float-right"><small id="inp" [routerLink]="['/caretakersignup']">New member ? register here</small></button>
+ <!--<button id="btnid" class="float-right"><small id="inp" [routerLink]="['/admincaretakerpage']">admin caretakerpage</small></button>--> 
+</div>
+</div>
+
+<!--https://png.pngtree.com/thumb_back/fh260/back_pic/03/94/79/9257ea9215c9e34.jpg-->

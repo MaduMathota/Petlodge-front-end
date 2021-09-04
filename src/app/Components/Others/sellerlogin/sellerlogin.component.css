@@ -1,0 +1,37 @@
+.formcontainer {
+    top: 18%;
+    left: 12%;
+      /* background:url("src/assets/image/formbackground.jpg") no-repeat center; */
+      box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+      
+  
+      max-width:30%;
+      min-height:80%;
+      
+      position:relative;
+      }
+      #inp{
+      
+      padding:15px 20px;
+      border-radius:25px;
+      background:rgba(169, 226, 240, 0.568);
+      }
+  
+      .bg {
+         
+          /* background-image: url("src/assets/image/bg.jpg"); */
+          position: absolute;
+          height: 100%; 
+          width: 100%;
+          top: 0;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+  
+        #btnid{
+  
+          background:none;
+          border:none;
+          
+  
+        }

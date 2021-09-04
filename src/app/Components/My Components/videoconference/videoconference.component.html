@@ -1,0 +1,6 @@
+
+
+<div [id]="localCallId" class="local"></div>
+
+<div *ngFor="let callId of remoteCalls" [id]="callId" class="remote"></div>
+<div class="btn" (click)="endcall()"><button type="button" class="btn btn-danger btn-rounded" >endcall</button></div>

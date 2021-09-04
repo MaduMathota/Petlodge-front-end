@@ -1,0 +1,102 @@
+     
+            <div class="navigation">
+                <nav>
+              <ul class="nav-type">
+                <li><a href [routerLink]="['/adminpage']" class="active">Admin</a></li>
+                <li><a href [routerLink]="['/adminpetregisterpage']"  class="active1">PetRegistration</a></li>
+                <li><a href [routerLink]="['/adminpetpage']"  class="active1">Pets</a></li>
+                <li><a href [routerLink]="['/adminpetownerpage']"  class="active1">Petowners</a></li>
+                <li><a href [routerLink]="['/admincaretakerpage']"  class="active2">Caretakers</a></li>
+                <li><a href [routerLink]="['/adminjobpage']" class="active">AssignedJobs</a></li>
+                <li><a href [routerLink]="['/adminstoragekennel']"  class="active3">Storage</a></li>
+                <li><a href [routerLink]="['/adminveterinarianpage']" class="active">Veterinarians</a></li>
+                <li><a href [routerLink]="['/adminsellerpage']" class="active">Sellers</a></li>
+                <li><a href [routerLink]="['/adminitempage']" class="active">Products</a></li>
+              </ul>
+            </nav>
+            </div>
+       
+
+    <div class="row">
+        <div class="col-md-{{size}}">
+        <table class="table table-striped">
+            <thead class = "thead-dark">
+                <tr>
+                    <th>Petowner Id</th>
+                    <th>Petowner Name</th>
+                    <th>ContactNo</th>
+                    <th>email</th>
+                    <th>ContactNo</th>
+                    <th>Payment Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let petownerobj of petowners">
+                    <td>{{petownerobj.id}}</td>
+                    <td>{{petownerobj.name}}</td>
+                    <td>{{petownerobj.contactno}}</td>
+                    <td>{{petownerobj.address}}</td>
+                    <td>{{petownerobj.email}}</td>
+                    <td>{{petownerobj.paymentstatus}}</td>
+                    <td>
+                        <button class="btn btn-primary" (click) ="editpetowner(petownerobj)">Edit</button>
+                        <button class="btn btn-danger" (click) = "deletepetowner(petownerobj.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+       
+        </table>
+        </div>
+        <div class="col-md-2" *ngIf="editmode">
+        
+            <div class="form-group">
+                <label for="UId">Petowner Id</label>
+                <input type="text" id = "inp" class="form-control" name="petownerid" [(ngModel)]="petowner.id" required #petownerid = "ngModel" 
+                [class.is-invalid]="petownerid.invalid && petownerid.touched">
+                <small [class.d-none]="petownerid.valid || petownerid.untouched" class="text-danger" >you should enter petowner Id !</small>
+            </div>
+      
+              <div class="form-group">
+                <label for="uname">Name</label>
+                <input type="text" id= "inp" class="form-control" name="petownername" [(ngModel)]="petowner.name" required #petownername = "ngModel"
+                [class.is-invalid]="petownername.invalid && petownername.touched">
+                <small [class.d-none]="petownername.valid || petownername.untouched" class="text-danger" > Enter Pet Name !</small>
+              </div>
+
+              <div class="form-group">
+                <label for="ucontactno">ContactNo</label>
+                <input type="text" id= "inp" class="form-control" name="petownercontactno" [(ngModel)]="petowner.contactno" required #petownercontactno = "ngModel"
+                [class.is-invalid]="petownercontactno.invalid && petownercontactno.touched">
+                <small [class.d-none]="petownercontactno.valid || petownercontactno.untouched" class="text-danger" > Enter petowner contactno !</small>
+              </div>
+
+              <div class="form-group">
+                <label for="uaddress">Address</label>
+                <input type="text" id= "inp" class="form-control" name="petowneraddress" [(ngModel)]="petowner.address" required #petowneraddress= "ngModel"
+                [class.is-invalid]="petowneraddress.invalid && petowneraddress.touched">
+                <small [class.d-none]="petowneraddress.valid || petowneraddress.untouched" class="text-danger" > Enter petowner address !</small>
+              </div>
+
+              <div class="form-group">
+                <label for="uemail">Email</label>
+                <input type="text" id= "inp" class="form-control" name="petowneremail" [(ngModel)]="petowner.email" required #petowneremail = "ngModel"
+                [class.is-invalid]="petowneremail.invalid && petowneremail.touched">
+                <small [class.d-none]="petowneremail.valid || petowneremail.untouched" class="text-danger" > Enter Petowner email !</small>
+              </div>
+
+                <div class="form-group">
+                    <label for="upaymnt">Payment Status</label>
+                    <input type="text" id= "inp" class="form-control" name="petownerpaymentstatus" [(ngModel)]="petowner.paymentstatus" required #petownerpaymentstatus = "ngModel"
+                    [class.is-invalid]="petownerpaymentstatus.invalid && petownerpaymentstatus.touched">
+                    <small [class.d-none]="petownerpaymentstatus.valid || petownerpaymentstatus.untouched" class="text-danger" > Enter petowner paymentstatus!</small>
+                  </div>
+        
+                <button class="btn btn-primary" (click) ="updatepetowner()">Update</button>
+              
+        </div>
+        </div>
+
+        <div class="containerfloat">
+          <button id="btnfloat" class="add-to-cart" (click)="logout()">logout</button>
+        </div>

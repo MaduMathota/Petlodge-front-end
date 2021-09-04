@@ -1,0 +1,90 @@
+
+<div class="bg" >
+    <div class="formcontainer" >
+    <span style="text-align: center"> <h2>job assign</h2></span>
+    
+    <form #jobassigningform = "ngForm" (ngSubmit)="jobassign()">
+    
+        <div class="form-group">
+          <label for="pid">Pet id</label>
+          <input type="text" id= "inp" class="form-control" name="petid" [(ngModel)]="job.petid" required #petid = "ngModel"
+          [class.is-invalid]="petid.invalid && petid.touched">
+          <small [class.d-none]="petid.valid || petid.untouched" class="text-danger" >pet id required !</small>
+        </div>
+
+        <div class="form-group">
+          <label for="sdt">Start date</label>
+          <input type="text" id= "inp" class="form-control" name="startd" [(ngModel)]="job.startDate" required #startd = "ngModel"
+          [class.is-invalid]="startd.invalid && startd.touched">
+          <small [class.d-none]="startd.valid || startd.untouched" class="text-danger" >enter start date !</small>
+        </div>
+
+        <div class="form-group">
+          <label for="edt">End date</label>
+          <input type="text" id= "inp" class="form-control" name="endd" [(ngModel)]="job.endDate" required #endd = "ngModel"
+          [class.is-invalid]="endd.invalid && endd.touched">
+          <small [class.d-none]="endd.valid || endd.untouched" class="text-danger" >enter end date !</small>
+        </div>
+
+       
+        <div class="form-group">
+          <label for="cid">Caretaker id</label>
+          <div class="row">
+            <div class="col-md-6">
+          <input type="text" id= "inp" class="form-control" name="careid" [(ngModel)]="job.caretakersId" required #careid = "ngModel"
+          [class.is-invalid]="careid.invalid && careid.touched">
+          <small [class.d-none]="careid.valid || careid.untouched" class="text-danger" >enter caretaker id !</small>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-outline-primary mb-2 mr-2" (click)="openScrollableContent(longContent)" >Check job count</button>
+        </div>
+      </div>
+      
+      </div>
+      
+
+        <div class="form-group">
+          <label for="kid">Kennel id</label>
+          <input type="text" id= "inp" class="form-control" name="kennelid" [(ngModel)]="job.kennelid" required #kennelid= "ngModel"
+          [class.is-invalid]="kennelid.invalid && kennelid.touched">
+          <small [class.d-none]="kennelid.valid || kennelid.untouched" class="text-danger" >enter kennel id !</small>
+        </div>
+      
+        <button [disabled] ="jobassigningform.form.invalid" type="submit" class="btn btn-info">Assign Job</button>
+    
+      </form>
+      
+    
+    </div>
+    </div>
+
+  
+
+
+    <ng-template #longContent let-modal>
+      <div class="modal-body">
+
+        <table class="table table-striped">
+          <thead class = "thead-dark">
+              <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th>Number of jobs</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let care of caretakerdtos">
+                  <td>{{care.caretakerId}}</td>
+                  <td>{{care.caretakername}}</td>
+                  <td>{{care.count}}</td>
+              </tr>
+          </tbody>
+      </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+      </div>
+    </ng-template>
+    
+    

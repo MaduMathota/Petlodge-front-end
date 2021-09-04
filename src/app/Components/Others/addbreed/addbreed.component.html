@@ -1,0 +1,55 @@
+<body>
+  
+    <div class="bg">
+    <div class="formcontainer" >
+    <span style="text-align: center"> <h2>Pet breed details</h2></span>
+
+    <form #breedform= "ngForm" (ngSubmit)="addBreed()">
+     
+      
+      <div class="form-group">
+        <label for="pname">Breed Id</label>
+        <input type="text" id = "inp" class="form-control" name="bid" [(ngModel)]="breed.id" required #bid = "ngModel" 
+        [class.is-invalid]="bid.invalid && bid.touched">
+        <small [class.d-none]="bid.valid || bid.untouched" class="text-danger" >pet breed id here !</small>
+    </div>
+
+    <!-- <div class="form-group">
+      <label for="brtype">Breed Type</label>
+      <input type="text" id= "inp" class="form-control" name="btype" [(ngModel)]="breed.type" required #btype = "ngModel"
+      [class.is-invalid]="btype.invalid && btype.touched">
+      <small [class.d-none]="btype.valid || btype.untouched" class="text-danger" > Enter breed type !</small>
+    </div> -->
+
+    <div class="form-group">
+      <select name="ictgory"  class="form-control" name="btype" [(ngModel)]="breed.type" required #btype = "ngModel"
+      [class.is-invalid]="btype.invalid && btype.touched" style="border-radius: 2.5vh;">
+      <option [ngValue]="undefined" hidden style="border-radius: 2.2vh;">Select Pet Type</option>
+        <option *ngFor="let type of types">{{type.typename}}</option>
+
+      </select>
+      <small [class.d-none]="btype.valid || btype.untouched" class="text-danger" >Select Pet Type !</small>
+    </div>
+
+      <div class="form-group">
+          <label for="pname">Breed Name</label>
+          <input type="text" id = "inp" class="form-control" name="bname" [(ngModel)]="breed.breedname" required #bname = "ngModel" 
+          [class.is-invalid]="bname.invalid && bname.touched">
+          <small [class.d-none]="bname.valid || bname.untouched" class="text-danger" >you should enter pet breed here !</small>
+      </div>
+
+
+
+        <div class="form-group">
+            <label for="descrip">Discription</label>
+            <textarea type="text" id= "inp" class="form-control" name="bdisc" [(ngModel)]="breed.description" required #bdisc = "ngModel"
+            [class.is-invalid]="bdisc.invalid && bdisc.touched" style="height: 20vh ;"></textarea>
+            <small [class.d-none]="bdisc.valid || bdisc.untouched" class="text-danger" > Enter breed discription briefly !</small>
+          </div>
+
+
+        <button [disabled] ="breedform.form.invalid" type="submit" class="btn btn-info">Add Breed</button>
+      </form>
+    </div>
+    </div>
+    </body>

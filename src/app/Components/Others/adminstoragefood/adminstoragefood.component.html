@@ -1,0 +1,126 @@
+
+    <div class="navigation">
+        <nav>
+      <ul class="nav-type">
+        <li><a href [routerLink]="['/adminpage']" class="active">Admin</a></li>
+        <li><a href [routerLink]="['/adminpetregisterpage']"  class="active1">PetRegistration</a></li>
+        <li><a href [routerLink]="['/adminpetpage']"  class="active1">Pets</a></li>
+        <li><a href [routerLink]="['/adminpetownerpage']"  class="active1">Petowners</a></li>
+        <li><a href [routerLink]="['/admincaretakerpage']"  class="active2">Caretakers</a></li>
+        <li><a href [routerLink]="['/adminjobpage']" class="active">AssignedJobs</a></li>
+        <li><a href [routerLink]="['/adminstorage']"  class="active3">Storage</a></li>
+        <li><a href [routerLink]="['/adminveterinarianpage']" class="active">Veterinarians</a></li>
+        <li><a href [routerLink]="['/adminsellerpage']" class="active">Sellers</a></li>
+        <li><a href [routerLink]="['/adminitempage']" class="active">Products</a></li>
+      </ul>
+    </nav>
+    </div>
+
+    
+    <div class="navigationtwo">
+        <nav>
+      <ul class="nav-type" id="ultwo">
+        <li><a href [routerLink]="['/adminstoragekennel']" class="active">Kennel</a></li>
+        <li><a href [routerLink]="['/adminstoragemedicine']"  class="active1">Medicine</a></li>
+        <li><a href [routerLink]="['/adminstoragefood']"  class="active1">Food</a></li>
+        <li><a href [routerLink]="['/addkennelpage']" class="active1">AddKennel</a></li>
+        <li><a href [routerLink]="['/addmedicinepage']" class="active1">AddMedicine</a></li>
+        <li><a href [routerLink]="['/addfoodpage']" class="active1">AddFood</a></li>
+      </ul>
+    </nav>
+    </div>
+
+
+<div class="row">
+
+    <div class="col-md-{{size}}">
+        <div><h2>Foods </h2></div>
+        <table class="table table-striped">
+            <thead class = "thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>ToWhom</th>
+                    <th>Quantity</th>
+                    <th>
+
+              <div class="navigationthree">
+                <nav>
+              <ul class="nav-type" id="tbl">
+                <li><button class="active" style="background-color: transparent;border: none;color: white;" (click)="createfoodpdfreport()">Create Food PDF Report</button></li>
+                <li><button class="active" style="background-color: transparent;border: none;color: white;" (click)="createfoodhtmlreport()">Create Food HTML Report</button></li>
+              </ul>
+
+              
+            </nav>
+            </div>
+            Actions
+            </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let fod of foods">
+                    <td>{{fod.id}}</td>
+                    <td>{{fod.name}}</td>
+                    <td>{{fod.type}}</td>
+                    <td>{{fod.towhom}}</td>
+                    <td>{{fod.quantity}}</td>
+                    
+                    <td>
+                        <button class="btn btn-primary" (click) ="editfood(fod)">Edit</button>
+                        <button class="btn btn-danger" (click) = "deletefood(fod.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div class="col-md-2" *ngIf="editmodef">
+
+            <div class="form-group">
+                <label for="Fid">Id</label>
+                <input [disabled] = "true" type="text" id = "inp" class="form-control" name="foodid" [(ngModel)]="food.id" required #foodid = "ngModel" 
+                [class.is-invalid]="foodid.invalid && foodid.touched">
+                <small [class.d-none]="foodid.valid || foodid.untouched" class="text-danger" >you should enter food Id !</small>
+            </div>
+        
+              <div class="form-group">
+                <label for="ffood">Name</label>
+                <input type="text" id= "inp" class="form-control" name="foodname" [(ngModel)]="food.name" required #foodname = "ngModel"
+                [class.is-invalid]="foodname.invalid && foodname.touched">
+                <small [class.d-none]="foodname.valid || foodname.untouched" class="text-danger" > Enter Food Name </small>
+              </div>
+        
+              <div class="form-group">
+                  <label for="ftype">Type</label>
+                  <input type="text" id= "inp" class="form-control" name="foodtype" [(ngModel)]="food.type" required #foodtype = "ngModel"
+                  [class.is-invalid]="foodtype.invalid && foodtype.touched">
+                  <small [class.d-none]="foodtype.valid || foodtype.untouched" class="text-danger" > Enter Food Type </small>
+                </div>
+        
+                <div class="form-group">
+                  <label for="ftowhom">To Whom</label>
+                  <input type="text" id= "inp" class="form-control" name="foodtowhom" [(ngModel)]="food.towhom" required #foodtowhom = "ngModel"
+                  [class.is-invalid]="foodtowhom.invalid && foodtowhom.touched">
+                  <small [class.d-none]="foodtowhom.valid || foodtowhom.untouched" class="text-danger" >Enter This Food to Whom </small>
+                </div>
+        
+                <div class="form-group">
+                  <label for="fquantity">Quantity</label>
+                  <input type="text" id= "inp" class="form-control" name="foodquantity" [(ngModel)]="food.quantity" required #foodquantity = "ngModel"
+                  [class.is-invalid]="foodquantity.invalid && foodquantity.touched">
+                  <small [class.d-none]="foodquantity.valid || foodquantity.untouched" class="text-danger" >Enter Quantity </small>
+                </div>
+
+                <div *ngIf="editmodef"><button class="btn btn-primary"  (click) ="updatefood()">Update</button></div> 
+        
+            </div>
+            
+
+</div>
+
+
+<div class="containerfloat">
+  <button id="btnfloat" class="add-to-cart" (click)="logout()">logout</button>
+</div>

@@ -1,0 +1,65 @@
+    
+<!-- <div class="row">
+    <div class="col-md-{{size}}">
+        <h2>{{str}}</h2>
+    <table class="table table-striped">
+        
+        <thead class = "thead-dark">
+            <tr>
+                <th>Pet Id</th>
+                <th>Kennel Id</th>
+                <th>Start date</th>
+                <th>End date</th>
+            </tr>
+        </thead>
+       
+        <tbody>
+            <tr *ngFor="let jb of jobs" (click) ="editjob(jb)">
+                <td>{{jb.petid}}</td>
+                <td>{{jb.kennelid}}</td>
+                <td>{{jb.startDate}}</td>
+                <td>{{jb.endDate}}</td>
+            </tr>
+        </tbody>
+   
+    </table>
+    </div>
+    </div> -->
+
+    <section>
+        <div class="container-fluid">
+          <div class="container">
+            <div class="row">
+
+              <div *ngFor="let jb of jobs" (click) ="editjob(jb)">
+              <div class="col-sm-4">
+                <div class="card card_violet text-center">
+                  <div class="title">
+                    <i class="fa fa-paw" aria-hidden="true"></i>
+                    <h2>Pet Id</h2>
+                  </div>
+                  <div class="price">
+                    <h4>{{jb.petid}}</h4>
+                  </div>
+                  <div class="option">
+                    <ul>
+                      <li>Care this pet from</li>
+                      <li><i class="fa fa-calendar" aria-hidden="true"></i> {{jb.startDate}}</li>
+                      <li>to</li>
+                      <li><i class="fa fa-calendar" aria-hidden="true"></i> {{jb.endDate}}</li>
+                      </ul>
+                  </div>
+                  <a>Kennel Id: {{jb.kennelid}}</a>
+                </div>
+              </div>
+            </div>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="containerfloat">
+        <button id="btnfloat" class="add-to-cart" (click)="logout()">logout</button>
+      </div>
+    

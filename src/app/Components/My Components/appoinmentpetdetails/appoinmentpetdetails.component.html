@@ -1,0 +1,68 @@
+
+      <section>
+        <div class="container-fluid">
+          <div class="container">
+            <div class="row">
+
+              <div class="col-sm-6">
+                <div class="card card_violet text-center">
+                  <div class="title">
+                    <i class="fa fa-paw" aria-hidden="true"></i>
+                    <h2>Pet Id</h2>
+                    <h2>{{pet.appointmentpetid}}</h2>
+                  </div>
+                  <div class="tag">
+                    <h4>{{pet.petname}}</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="card card_three text-center">
+                  <div class="title">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <h2>Pet Owner name</h2>
+                    <h2>{{pet.petownername}}</h2>
+                  </div>
+                  <div class="tag">
+                    <h2>Contact No</h2>
+                    <h4>{{pet.petownercontact}}</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="card card_red text-center">
+                  <div class="title">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    <h2>Appearence</h2>
+                  </div>
+                  <div class="option">
+                    
+                      <p><i class="fa fa-paw" aria-hidden="true"></i> Type: {{pet.type}}</p>
+                      <p><i class="fa fa-paw" aria-hidden="true"></i> Breed: {{pet.breed}}</p>
+                      <p><i class="fa fa-paw" aria-hidden="true"></i> Body color: {{pet.color}}</p>
+                      <p><i class="fa fa-paw" aria-hidden="true"></i> Eye color: {{pet.eyecolor}}</p>
+                      
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="card card_three text-center">
+                  <div class="title">
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                    <h2>Medical History</h2>
+                  </div>
+                  <div class="option">
+                    
+                      <p><i class="fa fa-plus" aria-hidden="true"></i> {{pet.medicalhistory}}</p>
+                      
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>

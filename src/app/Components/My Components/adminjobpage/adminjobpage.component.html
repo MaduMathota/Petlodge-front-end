@@ -1,0 +1,104 @@
+<div class="navigation">
+    <nav>
+  <ul class="nav-type">
+    <li><a href [routerLink]="['/adminpage']" class="active">Admin</a></li>
+    <li><a href [routerLink]="['/adminpetregisterpage']"  class="active1">PetRegistration</a></li>
+    <li><a href [routerLink]="['/adminpetpage']"  class="active1">Pets</a></li>
+    <li><a href [routerLink]="['/adminpetownerpage']"  class="active1">Petowners</a></li>
+    <li><a href [routerLink]="['/admincaretakerpage']"  class="active2">Caretakers</a></li>
+    <li><a href [routerLink]="['/adminjobpage']" class="active">AssignedJobs</a></li>
+    <li><a href [routerLink]="['/adminstoragekennel']"  class="active3">Storage</a></li>
+    <li><a href [routerLink]="['/adminveterinarianpage']" class="active">Veterinarians</a></li>
+    <li><a href [routerLink]="['/adminsellerpage']" class="active">Sellers</a></li>
+    <li><a href [routerLink]="['/adminitempage']" class="active">Products</a></li>
+  </ul>
+</nav>
+</div>
+
+<div class="row">
+
+<div class="col-md-{{size}}">
+    <h2>Jobs</h2>
+<table class="table table-striped">
+    <thead class = "thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Caretaker Id</th>
+            <th>Pet Id</th>
+            <th>Kennel Id</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let jb of jobs">
+            <td>{{jb.id}}</td>
+            <td>{{jb.startDate}}</td>
+            <td>{{jb.endDate}}</td>
+            <td>{{jb.caretakersId}}</td>
+            <td>{{jb.petid}}</td>
+            <td>{{jb.kennelid}}</td>
+            
+            <td>
+                <button class="btn btn-primary" (click) ="editjob(jb)">Edit</button>
+                <button class="btn btn-danger" (click) = "deletejob(jb.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div class="col-sm-2" *ngIf="editmodek">
+
+    <div class="form-group">
+        <label for="JId">Id</label>
+        <input [disabled] = "true" type="text" id = "inp" class="form-control" name="jobid" [(ngModel)]="job.id" required #jobid = "ngModel" 
+        [class.is-invalid]="jobid.invalid && jobid.touched">
+        <small [class.d-none]="jobid.valid || jobid.untouched" class="text-danger" >you should enter job id !</small>
+    </div>
+
+      <div class="form-group">
+        <label for="jstartd">Start Date</label>
+        <input type="text" id= "inp" class="form-control" name="jobsd" [(ngModel)]="job.startDate" required #jobsd = "ngModel"
+        [class.is-invalid]="jobsd.invalid && jobsd.touched">
+        <small [class.d-none]="jobsd.valid || jobsd.untouched" class="text-danger" > Enter job Start Date. !</small>
+      </div>
+
+      <div class="form-group">
+          <label for="jendd">End Date</label>
+          <input type="text" id= "inp" class="form-control" name="jobed" [(ngModel)]="job.endDate" required #jobed = "ngModel"
+          [class.is-invalid]="jobed.invalid && jobed.touched">
+          <small [class.d-none]="jobed.valid || jobed.untouched" class="text-danger" > Enter job End Date </small>
+        </div>
+
+        <div class="form-group">
+            <label for="jcareid">Caretaker Id</label>
+            <input type="text" id= "inp" class="form-control" name="jobcid" [(ngModel)]="job.caretakersId" required #jobcid = "ngModel"
+            [class.is-invalid]="jobcid.invalid && jobcid.touched">
+            <small [class.d-none]="jobcid.valid || jobcid.untouched" class="text-danger" > Enter Caretaker Id </small>
+          </div>
+
+          <div class="form-group">
+            <label for="jpid">Pet Id</label>
+            <input type="text" id= "inp" class="form-control" name="jobpid" [(ngModel)]="job.petid" required #jobpid = "ngModel"
+            [class.is-invalid]="jobpid.invalid && jobpid.touched">
+            <small [class.d-none]="jobpid.valid || jobpid.untouched" class="text-danger" > Enter Pet Id </small>
+          </div>
+
+          <div class="form-group">
+            <label for="jkennelid">Kennel Id</label>
+            <input type="text" id= "inp" class="form-control" name="jobkid" [(ngModel)]="job.kennelid" required #jobkid = "ngModel"
+            [class.is-invalid]="jobkid.invalid && jobkid.touched">
+            <small [class.d-none]="jobkid.valid || jobkid.untouched" class="text-danger" > Enter Kennel Id </small>
+          </div>
+
+        <button class="btn btn-primary" (click) ="updatejob()">Update</button>
+
+</div>
+
+</div>
+
+<div class="containerfloat">
+  <button id="btnfloat" class="add-to-cart" (click)="logout()">logout</button>
+</div>

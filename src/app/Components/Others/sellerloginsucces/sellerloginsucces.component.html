@@ -1,0 +1,234 @@
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- start header -->
+
+<section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <h1 ><span>S</span>eller <span>D</span>ashboard</h1>
+  
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <!-- end header -->
+  
+  
+  <!-- hero section 1 start  -->
+  
+  <section id="hero">
+    <div class="butn"><button class="button" style="vertical-align:middle" (click)="logout()"
+        routerLinkActive="active"><span>Log Out </span></button></div>
+    <div class="hero container">
+  
+      <div>
+  
+        <h1> Hello,<span></span></h1><br>
+        <h1> __{{seller.sellerName}}__ <span></span> </h1>
+      </div>
+  
+      <div class="nav-list">
+        <div class="hamburger">
+          <div class="bar"></div>
+        </div>
+        <ul>
+          <li><a (click)="toHome()" data-after="Home">Home</a></li>
+          <li><a (click)="toService()" data-after="Service">Services</a></li>
+          <li><a (click)="toAboutme()" data-after="About">About</a></li>
+          <li><a [routerLink]="['/sellerchat']" data-after="About">Chat</a></li>
+
+        </ul>
+      </div>
+  
+    </div>
+  </section>
+  
+  <!-- hero section end -->
+  
+  
+  <!-- service section  -->
+  
+  <section id="services">
+    <div class="services container"  >
+      <div class="service-top">
+        <h1 class="section_title">Serv<span>i</span>ces</h1>
+      </div> 
+      <div class="service-bottom">
+        <div class="flip-box" (click)="toitem()">
+          <div class="flip-box-inner" >
+            <div class="flip-box-front"  id="myDIV1">
+              <h2>Web Store</h2>
+              <div class="icon" id="resizingIcon"><img src="https://img.icons8.com/nolan/50/fast-cart.png" /></div>
+            </div>
+            <div class="flip-box-back" id="myDIV2" >
+              <h2>Go to <br> Web Store</h2>
+            </div>
+          </div>
+        </div>    
+  
+        <!-- ///////////////////////////////////////////////// -->
+        <!-- <div class="flip-box" >
+          <div class="flip-box-inner"  [routerLink]="['/sellerchat']">
+            <div class="flip-box-front"  id="myDIV1">
+              <h2>Web Chat</h2>
+              <div class="icon" id="resizingIcon"><img src="https://img.icons8.com/cute-clipart/64/000000/chat-message-sent.png" /></div>
+            </div>
+            <div class="flip-box-back" id="myDIV2">
+              <h2>Go to <br> Web Chat</h2>
+            </div>
+          </div>
+        </div>   -->
+      </div>
+     
+    </div>
+  
+  
+  
+   
+  </section>
+  
+  <!-- end service section -->
+  
+  <!-- start about section -->
+  
+  <section id="about">
+    <h1 class="section-title">About <span>me</span></h1>
+  
+    <div class="aboutt">
+  
+      <div class="section-details card" style="line-height: 2;" >
+        <p><span>Seller Id:</span>  {{seller.sellerId}}</p>
+        <p> <span>Name:</span>  {{seller.sellerName}}</p>
+        <p> <span>Contact Number:</span>  {{seller.sellerContactNo}} </p>
+        <p> <span>Address:</span> {{ seller.sellerAddress}} </p>
+        <p> <span>Email:</span>  {{seller.sellerEmail}}</p>
+      </div>
+  
+  <!-- /////////////////////////////////////////////////////////////// -->
+  
+  
+      <div class="updateList">
+  
+        <button class="buttoncss" (click)="toggleUpdatedetails()" >Edit details </button>
+        
+  
+      <div class="row" id="toggleList" *ngIf="toggledetails">
+        
+  
+        <div >
+          <br>
+          <p style="font-size: 2vw;color: rgb(23, 125, 185);">Change Details</p>
+            <div class="form-group">
+            <label for="uname">Name</label>
+            <input type="text" id="inp" class="form-control" name="username" [(ngModel)]="seller.sellerName" >
+          </div>
+  
+          <br>
+          <div class="form-group">
+            <label for="uaddress">Address</label>
+            <input type="text" id="inp" class="form-control" name="useraddress" [(ngModel)]=" seller.sellerAddress">
+          </div>     
+  
+       
+          <br>
+          <div class="form-group">
+            <label for="ucontact">Contact No</label>
+            <input type="text" id="inp" class="form-control" name="usercontactno"
+              [(ngModel)]="seller.sellerContactNo">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="inp" class="form-control" name="useremail" [(ngModel)]="seller.sellerEmail">
+          </div>
+  
+          <br>
+          <div class="row">
+           <button class="btn btn-primary" (click)="updateseller()">Update</button>
+          </div>
+          <br>
+  
+        </div>
+      </div>
+      </div>
+     
+      
+  
+      <div class="pwsChanger">
+        <button (click)="toggleUpdaatepasward()" class="buttoncss">Edit Password</button>
+        <p></p>
+  
+              <div *ngIf="togglepasward"><br>
+                <p style="font-size: 2vw;color: rgb(23, 125, 185);">Change password</p>              <br>
+                <form #passwordchangeform="ngForm" (ngSubmit)="changepsw()">
+                  <div class="row"> <br>
+  
+                      <div class="form-group">
+                        <label for="upassword">Password</label>
+                        <input type="password" id="inp" class="form-control" name="userpassword"
+                          [(ngModel)]="seller.sellerPassword" required #userpassword="ngModel"
+                          [class.is-invalid]="userpassword.invalid && userpassword.touched">
+                        <small [class.d-none]="userpassword.valid || userpassword.untouched" class="text-danger">Enter a
+                          Password !</small><p></p> <br>
+                      </div>
+                    <br>
+  
+  
+                    
+                      <div class="form-group">
+                        <label for="upasswordconfirm">Confirm Password</label>
+                        <input type="password" id="inp" class="form-control" name="userpasswordconfirm"
+                          (ngModel)="seller.sellerPassword" required #userpasswordconfirm="ngModel"
+                          [class.is-invalid]="userpasswordconfirm.invalid && userpasswordconfirm.touched">
+                        <small
+                          [class.d-none]="(userpasswordconfirm.value == userpassword.value) || userpasswordconfirm.untouched"
+                          class="text-danger">Password and Confirm Password are not match.check again !</small>
+                      </div>
+                    <br>
+  
+                    
+                      <br>
+                      <button [disabled]="passwordchangeform.form.invalid" type="submit" class="btn btn-primary">Update</button>
+                   
+  
+                  </div>
+                </form>
+              </div>
+      </div>
+  
+    </div>
+  </section>
+  <!-- end about section -->
+  
+  
+  
+  
+  
+  <!-- Footer -->
+  <section id="footer">
+    <div class="footer container">
+  
+      <h2>Share</h2>
+      <div class="social-icon">
+        <div class="social-item">
+          <a href="https://www.facebook.com/"><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png" /></a>
+        </div>
+        <div class="social-item">
+          <a href="https://www.instagram.com/"><img
+              src="https://img.icons8.com/bubbles/100/000000/instagram-new.png" /></a>
+        </div>
+        <div class="social-item">
+          <a href="https://twitter.com/?lang=en"><img src="https://img.icons8.com/bubbles/100/000000/twitter.png" /></a>
+        </div>
+  
+      </div>
+      <p>Copyright © 2021. All rights reserved</p>
+    </div>
+    
+  </section>
+
+
+  

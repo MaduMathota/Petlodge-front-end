@@ -1,0 +1,31 @@
+
+    <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">
+        <div class="chat-send row" >
+              <div class="toggler">
+                          <strong id="userName"><b id="uId">U</b>ser<b id="uId">N</b>ame:</strong> 
+                          <input type="text" style="margin-left:1.5em;" class="form-control" name="user" id="input-user" #ab ngModel>
+                          <button style="margin-left:3.5em;" [disabled]="!ab.value" (click)="toggleMe()" *ngIf="!showme" >Go</button>
+              </div>
+  
+  
+
+      <div *ngIf="showme">           
+          <div class="chat-applicaton">
+                  <h2 id="userName"> <b id="uId">P</b>etlogde <b id="uId">C</b>hat <b id="uId">B</b>ox </h2>
+                      <div class="box above" id="chat-window">
+                          <div id="output" *ngFor="let chatMessage of webSocketService.chatMessages">
+                              <strong>{{chatMessage.user}}: </strong>
+                              <span>{{chatMessage.message}} </span>
+                          </div>
+                      </div>
+              
+  
+
+              <div class="box below">
+                   <input   type="text" class="form-control" name="message" id="input-message" #cd ngModel>
+                   <button type="submit" class="btn btn-primary" [disabled]="!cd.value"><span class="glyphicon glyphicon-send"></span> Send</button>
+              </div>
+          </div>
+      </div>
+</div>
+</form>

@@ -1,0 +1,32 @@
+<div class="bg" >
+    <div class="formcontainer" >
+    <span style="text-align: center"> <h2>Veterinarian Login</h2></span>
+    
+    <form #vetloginform= "ngForm" (ngSubmit)="vetLogin()">
+      <small class="text-danger">{{errormessege}}</small>
+    
+        <div class="form-group">
+          <label for="UId">Vet Id</label>
+          <input type="text" id = "inp" class="form-control" name="vetid" [(ngModel)]="veterinarian.id" required #vetid = "ngModel" 
+          [class.is-invalid]="vetid.invalid && vetid.touched">
+          <small [class.d-none]="vetid.valid || vetid.untouched" class="text-danger" >you should enter your user Id !</small>
+        </div>
+    
+        <div class="form-group">
+          <label for="Uassword">Password</label>
+          <input type="password" id= "inp" class="form-control" name="userpassword" [(ngModel)]="veterinarian.password" required #userpassword = "ngModel"
+          [class.is-invalid]="userpassword.invalid && userpassword.touched">
+          <small [class.d-none]="userpassword.valid || userpassword.untouched" class="text-danger" >password is requred !</small>
+        </div>
+      
+        <button [disabled] ="vetloginform.form.invalid" type="submit" class="btn btn-info">Login</button>
+    
+      </form>
+    
+     
+      <button id="btnid" class="float-right"><small id="inp" [routerLink]="['/vetsignup']">New member ? register here</small></button>
+
+    </div>
+    </div>
+    
+    

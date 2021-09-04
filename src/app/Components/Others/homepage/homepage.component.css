@@ -1,0 +1,126 @@
+
+   .bg {
+         
+    background-image: url("src/assets/image/bg.jpg");
+    position: absolute;
+    height: 100%; 
+    width: 100%;
+    top: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  
+  section {
+ position: relative;
+ height: 100%; 
+ width: 100%;
+     max-width: 40vw;
+ 
+    
+    box-sizing: border-box;
+    padding: 10% 0; 
+    
+  }
+  
+  .card {
+
+   width: 12vw;
+    height: 50vh;
+    overflow: hidden;
+    border-radius: 15px;
+    margin: 10px 10px;
+    padding: 40% 10%;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+    transition: .5s;
+  }
+
+  .card:hover {
+    transform:scale(1.1);
+  }
+
+  .card_red, .card_red .title .fa {
+    background: linear-gradient(-45deg, #f39912, #c3ee27);
+  }
+
+  .card_violet, .card_violet .title .fa  {
+    background: linear-gradient(-45deg, #f403d1, #64b5f6);
+  }
+  
+  .card_greeny, .card_greeny .title .fa  {
+    background: linear-gradient(-45deg, #08e726, #0888f0);
+  }
+  
+  .card:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: rgba(255, 255, 255, .1);
+    z-index: 1;
+    transform: skewY(-5deg) scale(1.5);
+  }
+  
+  .title .fa {
+    
+    color: #fff;
+    font-size: 6vh;
+    width: 6vw;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, .1);
+  }
+  .title h2 {
+
+    margin: 20px 0 0;
+    padding: 0;
+    color: #fff;
+    font-size: 1.8vw;
+    z-index: 1;
+  }
+  .price {
+    position: relative;
+    z-index: 2;
+  }
+  .price h4 {
+    margin: 0;
+    padding: 20px 0;
+    color: #fff;
+    font-size: 60px;
+  }
+  .option {
+    position: relative;
+    z-index: 2;
+  }
+  .option ul {
+    margin: 0;
+    padding: 0;
+  }
+  .option ul li {
+    margin: 0 0 10px;
+    padding: 0;
+    list-style: none;
+    color: #fff;
+    font-size: 16px;
+  }
+  .card a {
+    display: block;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+    color: rgb(14, 100, 197) ;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    margin: 20px auto 0;
+    line-height: 40px;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0,0,0, .1);
+  }

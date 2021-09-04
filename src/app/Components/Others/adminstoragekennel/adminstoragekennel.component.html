@@ -1,0 +1,87 @@
+<div class="navigation">
+    <nav>
+  <ul class="nav-type">
+    <li><a href [routerLink]="['/adminpage']" class="active">Admin</a></li>
+    <li><a href [routerLink]="['/adminpetregisterpage']"  class="active1">PetRegistration</a></li>
+    <li><a href [routerLink]="['/adminpetpage']"  class="active1">Pets</a></li>
+    <li><a href [routerLink]="['/adminpetownerpage']"  class="active1">Petowners</a></li>
+    <li><a href [routerLink]="['/admincaretakerpage']"  class="active2">Caretakers</a></li>
+    <li><a href [routerLink]="['/adminjobpage']" class="active">AssignedJobs</a></li>
+    <li><a href [routerLink]="['/adminstorage']"  class="active3">Storage</a></li>
+    <li><a href [routerLink]="['/adminveterinarianpage']" class="active">Veterinarians</a></li>
+    <li><a href [routerLink]="['/adminsellerpage']" class="active">Sellers</a></li>
+    <li><a href [routerLink]="['/adminitempage']" class="active">Products</a></li>
+  </ul>
+</nav>
+</div>
+
+<div class="navigationtwo">
+    <nav>
+  <ul class="nav-type" id="ultwo">
+    <li><a href [routerLink]="['/adminstoragekennel']" class="active">Kennel</a></li>
+    <li><a href [routerLink]="['/adminstoragemedicine']"  class="active1">Medicine</a></li>
+    <li><a href [routerLink]="['/adminstoragefood']"  class="active1">Food</a></li>
+    <li><a href [routerLink]="['/addkennelpage']" class="active1">AddKennel</a></li>
+        <li><a href [routerLink]="['/addmedicinepage']" class="active1">AddMedicine</a></li>
+        <li><a href [routerLink]="['/addfoodpage']" class="active1">AddFood</a></li>
+  </ul>
+</nav>
+</div>
+
+<div class="row">
+
+<div class="col-md-{{size}}">
+    <h2>Kennels</h2>
+<table class="table table-striped">
+    <thead class = "thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Conditon</th>
+            <th>Assigned pet</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ken of kennels">
+            <td>{{ken.id}}</td>
+            <td>{{ken.kennelcondition}}</td>
+            <td>{{ken.assignedpet}}</td>
+            
+            <td>
+                <button class="btn btn-primary" (click) ="editkennel(ken)">Edit</button>
+                <button class="btn btn-danger" (click) = "deletekennel(ken.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div class="col-sm-2" *ngIf="editmodek">
+
+  
+  <div class="form-group">
+    <label for="kassignedpet">id</label>
+    <input type="text" id= "inp" class="form-control" name="kennelid" [(ngModel)]="kennel.id" required #kennelid = "ngModel"
+    [class.is-invalid]="kennelid.invalid && kennelid.touched">
+    <small [class.d-none]="kennelid.valid || kennelid.untouched" class="text-danger" > Enter pet id </small>
+  </div>
+
+
+      <div class="form-group">
+        <label for="kcondition">Condition</label>
+        <input type="text" id= "inp" class="form-control" name="kennelcondition" [(ngModel)]="kennel.kennelcondition" required #kennelcondition = "ngModel"
+        [class.is-invalid]="kennelcondition.invalid && kennelcondition.touched">
+        <small [class.d-none]="kennelcondition.valid || kennelcondition.untouched" class="text-danger" > Enter kennel condition. !</small>
+      </div>
+
+    
+
+        <button class="btn btn-primary" (click) ="updatekennel()">Update</button>
+
+</div>
+
+</div>
+
+<div class="containerfloat">
+  <button id="btnfloat" class="add-to-cart" (click)="logout()">logout</button>
+</div>

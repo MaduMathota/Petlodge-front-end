@@ -1,0 +1,19 @@
+<body class="bg">
+    <ul>
+        <li *ngFor="let item of items">
+          <div class="details">
+            <h2>{{item.name}}</h2>
+            <p>{{item.price}}<br>
+             <button class="updatebutton" (click)="toUpdatePage(item.id)">Update</button>
+              <button class="deletebutton" (click)="toDelete(item.id)">Delete</button>
+            </p>
+            <div class="product">
+              <img src="{{item.picByte}}">
+            </div>
+          </div>
+          
+          
+        </li>
+       
+      </ul>
+    </body>

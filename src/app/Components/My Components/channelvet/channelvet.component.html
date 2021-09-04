@@ -1,0 +1,39 @@
+<div id="bkgnd">
+
+  <div class="ripple-background">
+    <div class="circle xxlarge shade1"></div>
+    <div class="circle xlarge shade2"></div>
+    <div class="circle large shade3"></div>
+    <div class="circle mediun shade4"></div>
+    <div class="circle small shade5"></div>
+
+    <section>
+        <div class="container-fluid">
+          <div class="container">
+            <div class="row">
+
+              <div *ngFor="let vt of vets">
+              <div class="col-sm-4">
+                <div class="card card_green text-center">
+                  <div class="title">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    <h2>Dr.{{vt.name}}</h2>
+                  </div>
+                  <br>
+                  <div class="price">
+                    <h6 style="color: aliceblue;">Availability</h6>
+                    <h2 style="color: rgb(205, 238, 87);">{{vt.status}}</h2>
+                  </div>
+                  <a (click) ="channel(vt.id)">Click here to Channel</a>
+                </div>
+              </div>
+            </div>
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>

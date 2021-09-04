@@ -1,0 +1,120 @@
+
+    <div class="navigation">
+        <nav>
+      <ul class="nav-type">
+        <li><a href [routerLink]="['/adminpage']" class="active">Admin</a></li>
+        <li><a href [routerLink]="['/adminpetregisterpage']"  class="active1">PetRegistration</a></li>
+        <li><a href [routerLink]="['/adminpetpage']"  class="active1">Pets</a></li>
+        <li><a href [routerLink]="['/adminpetownerpage']"  class="active1">Petowners</a></li>
+        <li><a href [routerLink]="['/admincaretakerpage']"  class="active2">Caretakers</a></li>
+        <li><a href [routerLink]="['/adminjobpage']" class="active">AssignedJobs</a></li>
+        <li><a href [routerLink]="['/adminstorage']"  class="active3">Storage</a></li>
+        <li><a href [routerLink]="['/adminveterinarianpage']" class="active">Veterinarians</a></li>
+        <li><a href [routerLink]="['/adminsellerpage']" class="active">Sellers</a></li>
+        <li><a href [routerLink]="['/adminitempage']" class="active">Products</a></li>
+      </ul>
+    </nav>
+    </div>
+
+    <div class="navigationtwo">
+        <nav>
+      <ul class="nav-type" id="ultwo">
+        <li><a href [routerLink]="['/adminstoragekennel']" class="active">Kennel</a></li>
+        <li><a href [routerLink]="['/adminstoragemedicine']"  class="active1">Medicine</a></li>
+        <li><a href [routerLink]="['/adminstoragefood']"  class="active1">Food</a></li>
+        <li><a href [routerLink]="['/addkennelpage']" class="active1">AddKennel</a></li>
+        <li><a href [routerLink]="['/addmedicinepage']" class="active1">AddMedicine</a></li>
+        <li><a href [routerLink]="['/addfoodpage']" class="active1">AddFood</a></li>
+      </ul>
+    </nav>
+    </div>
+
+        <div class="row">
+
+            <div class="col-md-{{size}}">
+                <h2>Medicines</h2>
+                <table class="table table-striped">
+                    <thead class = "thead-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Discription</th>
+                            <th>ToWhom</th>
+                            <th>Quantity</th>
+                            <th>
+                            <div class="navigationthree">
+                              <nav>
+                            <ul class="nav-type" id="tbl">
+                              
+                              <li><button class="active" style="background-color: transparent;border: none;color: white;" (click)="createMedicinepdfreport()">Create Medicine PDF Report</button></li>
+                              <li><button class="active" style="background-color: transparent;border: none;color: white;" (click)="createMedicinehtmlreport()">Create Medicine HTML Report</button></li>
+                            </ul>
+                          </nav>
+                          </div>
+                          Actions
+                          </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let med of medicines">
+                            <td>{{med.id}}</td>
+                            <td>{{med.name}}</td>
+                            <td>{{med.discription}}</td>
+                            <td>{{med.towhom}}</td>
+                            <td>{{med.quantity}}</td>
+                            
+                            <td>
+                                <button class="btn btn-primary" (click) ="editmedicine(med)">Edit</button>
+                                <button class="btn btn-danger" (click) = "deletemedicine(med.id)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
+                <div class="col-sm-3" *ngIf="editmodem">
+
+                    <div class="form-group">
+                        <label for="MId">Id</label>
+                        <input [disabled] = "true" type="text" id = "inp" class="form-control" name="medicineid" [(ngModel)]="medicine.id" required #medicineid = "ngModel" 
+                        [class.is-invalid]="medicineid.invalid && medicineid.touched">
+                        <small [class.d-none]="medicineid.valid || medicineid.untouched" class="text-danger" >you should enter medicine Id !</small>
+                    </div>
+                
+                      <div class="form-group">
+                        <label for="mname">Name</label>
+                        <input type="text" id= "inp" class="form-control" name="medicinename" [(ngModel)]="medicine.name" required #medicinename = "ngModel"
+                        [class.is-invalid]="medicinename.invalid && medicinename.touched">
+                        <small [class.d-none]="medicinename.valid || medicinename.untouched" class="text-danger" > Enter Medicine Name</small>
+                      </div>
+                
+                      <div class="form-group">
+                          <label for="mdiscription">Discription</label>
+                          <input type="text" id= "inp" class="form-control" name="medicinediscription" [(ngModel)]="medicine.discription" required #medicinediscription = "ngModel"
+                          [class.is-invalid]="medicinediscription.invalid && medicinediscription.touched">
+                          <small [class.d-none]="medicinediscription.valid || medicinediscription.untouched" class="text-danger" > Enter Medicine Discription</small>
+                        </div>
+                
+                        <div class="form-group">
+                          <label for="mtowhom">To Whom</label>
+                          <input type="text" id= "inp" class="form-control" name="medicinetowhom" [(ngModel)]="medicine.towhom" required #medicinetowhom = "ngModel"
+                          [class.is-invalid]="medicinetowhom.invalid && medicinetowhom.touched">
+                          <small [class.d-none]="medicinetowhom.valid || medicinetowhom.untouched" class="text-danger" >Enter This Medicine to Whom</small>
+                        </div>
+                
+                        <div class="form-group">
+                          <label for="mquantity">Quantity</label>
+                          <input type="text" id= "inp" class="form-control" name="medicinequantity" [(ngModel)]="medicine.quantity" required #medicinequantity = "ngModel"
+                          [class.is-invalid]="medicinequantity.invalid && medicinequantity.touched">
+                          <small [class.d-none]="medicinequantity.valid || medicinequantity.untouched" class="text-danger" >Enter Medicine Quantity</small>
+                        </div>
+                
+                        <button class="btn btn-primary" (click) ="updatemedicine()">Update</button>
+                
+                </div>
+                
+        </div>
+
+        <div class="containerfloat">
+          <button id="btnfloat" class="add-to-cart" (click)="logout()">logout</button>
+        </div>

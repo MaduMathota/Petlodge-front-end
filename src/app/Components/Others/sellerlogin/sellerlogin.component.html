@@ -1,0 +1,47 @@
+
+<div class="bg">
+    <div class="formcontainer">
+  
+     
+      <span style="text-align: center">
+        <h2>Seller Login</h2>
+      </span>
+  
+      <form #loginForm="ngForm" (ngSubmit)="loginSeller()">
+  
+        <small class="text-danger">{{mgs}}</small>
+  
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="UId">Seller Id:</label>
+          <div class="col-sm-10">
+            <input type="text" id="inp" class="form-control" name="userid" placeholder="Enter the sellerId"
+              autocomplete="username" [(ngModel)]="seller.sellerId" required #userid="ngModel"
+              [class.is-invalid]="userid.invalid && userid.touched" name="userId">
+            <small [class.d-none]="userid.valid || userid.untouched" class="text-danger">SellerId is required </small>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">Password:</label>
+          <div class="col-sm-10">
+            <input type="password" name="Password" class="form-control" id="inp" placeholder="Enter the sellerPassword"
+              autocomplete="current-password" [(ngModel)]="seller.sellerPassword" #sellerPassword="ngModel" required
+              #sellerpassword="ngModel" [class.is-invalid]="sellerpassword.invalid && sellerpassword.touched">
+            <small [class.d-none]="sellerpassword.valid || sellerpassword.untouched" class="text-danger">sellerPassword is
+              required </small>
+          </div>
+        </div>
+  
+  
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button [disabled]="loginForm.form.invalid" type="submit" class="btn btn-info" >Login</button>
+          </div>
+        </div>
+  
+      </form>
+      <button id="btnid" class="float-right">
+        <small id="inp" class="float-right" [routerLink]="['/sellerregistration']">New Seller ? Register here</small>
+      </button>
+    </div>
+  </div>

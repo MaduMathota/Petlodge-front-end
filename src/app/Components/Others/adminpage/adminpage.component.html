@@ -1,0 +1,112 @@
+
+               
+            <div class="navigation">
+                <nav>
+              <ul class="nav-type">
+                <li><a href [routerLink]="['/adminpage']" class="active">Admin</a></li>
+                <li><a href [routerLink]="['/adminpetregisterpage']"  class="active1">PetRegistration</a></li>
+                <li><a href [routerLink]="['/adminpetpage']"  class="active1">Pets</a></li>
+                <li><a href [routerLink]="['/adminpetownerpage']"  class="active1">Petowners</a></li>
+                <li><a href [routerLink]="['/admincaretakerpage']"  class="active2">Caretakers</a></li>
+                <li><a href [routerLink]="['/adminjobpage']" class="active">AssignedJobs</a></li>
+                <li><a href [routerLink]="['/adminstoragekennel']"  class="active3">Storage</a></li>
+                <li><a href [routerLink]="['/adminveterinarianpage']" class="active">Veterinarians</a></li>
+                <li><a href [routerLink]="['/adminsellerpage']" class="active">Sellers</a></li>
+                <li><a href [routerLink]="['/adminitempage']" class="active">Products</a></li>
+              </ul>
+            </nav>
+            </div>
+       
+
+    <div class="row">
+        <div class="col-md-{{size}}">
+        <table class="table table-striped">
+            <thead class = "thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Contact No</th>
+                    <th [class.d-none]="true">Password</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let adminobj of admins">
+                    <td>{{adminobj.adminId}}</td>
+                    <td>{{adminobj.adminName}}</td>
+                    <td>{{adminobj.address}}</td>
+                    <td>{{adminobj.contactNo}}</td>
+                    <td [class.d-none]="true">{{adminobj.password}}</td>
+                    <td>{{adminobj.email}}</td>
+                    
+                    <td>
+                        <button class="btn btn-primary" (click) ="editadmin(adminobj)">Edit</button>
+                        <button class="btn btn-danger" (click) = "deleteadmin(adminobj.adminId)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="col-md-2" *ngIf="editmode">
+        
+            <div class="form-group">
+                <label for="UId">User Id</label>
+                <input type="text" id = "inp" class="form-control" name="userid" [(ngModel)]="admin.adminId" required #userid = "ngModel" 
+                [class.is-invalid]="userid.invalid && userid.touched">
+                <small [class.d-none]="userid.valid || userid.untouched" class="text-danger" >you should enter your user Id !</small>
+            </div>
+      
+              <div class="form-group">
+                <label for="uname">Name</label>
+                <input type="text" id= "inp" class="form-control" name="username" [(ngModel)]="admin.adminName" required #username = "ngModel"
+                [class.is-invalid]="username.invalid && username.touched">
+                <small [class.d-none]="username.valid || username.untouched" class="text-danger" > Enter your Name !</small>
+              </div>
+      
+              <div class="form-group">
+                  <label for="uaddress">Address</label>
+                  <input type="text" id= "inp" class="form-control" name="useraddress" [(ngModel)]="admin.address" required #useraddress = "ngModel"
+                  [class.is-invalid]="useraddress.invalid && useraddress.touched">
+                  <small [class.d-none]="useraddress.valid || useraddress.untouched" class="text-danger" > Enter your Current Address !</small>
+                </div>
+      
+                <div class="form-group">
+                  <label for="ucontact">Contact No</label>
+                  <input type="text" id= "inp" class="form-control" name="usercontactno" [(ngModel)]="admin.contactNo" required #usercontactno= "ngModel"
+                  [class.is-invalid]="usercontactno.invalid && usercontactno.touched">
+                  <small [class.d-none]="usercontactno.valid || usercontactno.untouched" class="text-danger" >Enter your phone number !</small>
+                </div>
+      
+                <div class="form-group">
+                  <label for="uemail">Email</label>
+                  <input type="text" id= "inp" class="form-control" name="useremail" [(ngModel)]="admin.email" required #useremail= "ngModel"
+                  [class.is-invalid]="useremail.invalid && useremail.touched">
+                  <small [class.d-none]="useremail.valid || useremail.untouched" class="text-danger" >Enter your Email address !</small>
+                </div>
+      
+                <div class="form-group">
+                  <label for="upassword">Password</label>
+                  <input type="password" id= "inp" class="form-control" name="userpassword" [(ngModel)]="admin.password" required #userpassword = "ngModel"
+                  [class.is-invalid]="userpassword.invalid && userpassword.touched">
+                  <small [class.d-none]="userpassword.valid || userpassword.untouched" class="text-danger" >Enter a Password !</small>
+                </div>
+      
+                <div class="form-group">
+                  <label for="upasswordconfirm">Confirm Password</label>
+                  <input type="password" id= "inp" class="form-control" name="userpasswordconfirm" (ngModel)="admin.password" required #userpasswordconfirm = "ngModel"
+                  [class.is-invalid]="userpasswordconfirm.invalid && userpasswordconfirm.touched">
+                  <small [class.d-none]="(userpasswordconfirm.value == userpassword.value) || userpasswordconfirm.untouched" class="text-danger" >Password and Confirm Password are not match.check again !</small>
+                </div>
+        
+                <button class="btn btn-primary" (click) ="updateadmin()">Update</button>
+        
+        </div>
+        </div>
+
+        <div class="containerfloat">
+          <button id="btnfloat" class="add-to-cart" (click)="logout()">logout</button>
+        </div>
+        
+        

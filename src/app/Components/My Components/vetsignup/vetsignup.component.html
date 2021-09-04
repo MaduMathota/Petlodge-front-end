@@ -1,0 +1,78 @@
+<body>
+    <div class="bg">
+    <div class="formcontainer" >
+    <span style="text-align: center"> <h2>Veterinarian Register</h2></span>
+
+    <form #vetsignupform= "ngForm" (ngSubmit)="veterinarianSignup()">
+      <!-- <small class="text-danger">{{errormessege}}</small> -->
+       
+      <div class="form-group">
+          <label for="UId">User Id</label>
+          <input type="text" id = "inp" class="form-control" name="userid" [(ngModel)]="veterinarian.id" required #userid = "ngModel" 
+          [class.is-invalid]="userid.invalid && userid.touched">
+          <small [class.d-none]="userid.valid || userid.untouched" class="text-danger" >you should enter your user Id !</small>
+      </div>
+
+        <div class="form-group">
+          <label for="uname">Name</label>
+          <input type="text" id= "inp" class="form-control" name="username" [(ngModel)]="veterinarian.name" required #username = "ngModel"
+          [class.is-invalid]="username.invalid && username.touched">
+          <small [class.d-none]="username.valid || username.untouched" class="text-danger" > Enter your Name !</small>
+        </div>
+
+        <div class="form-group">
+            <label for="uaddress">Address</label>
+            <input type="text" id= "inp" class="form-control" name="useraddress" [(ngModel)]="veterinarian.address" required #useraddress = "ngModel"
+            [class.is-invalid]="useraddress.invalid && useraddress.touched">
+            <small [class.d-none]="useraddress.valid || useraddress.untouched" class="text-danger" > Enter your Current Address !</small>
+          </div>
+
+          <div class="form-group">
+            <label for="ucontact">Contact No</label>
+            <input type="text" id= "inp" class="form-control" name="usercontactno" [(ngModel)]="veterinarian.contactno" required #usercontactno= "ngModel"
+            [class.is-invalid]="usercontactno.invalid && usercontactno.touched">
+            <small [class.d-none]="usercontactno.valid || usercontactno.untouched" class="text-danger" >Enter your phone number !</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="vcslreg">VCSL registration no</label>
+            <input type="text" id= "inp" class="form-control" name="uservcsl" [(ngModel)]="veterinarian.vcslregistrationno" required #uservcsl= "ngModel"
+            [class.is-invalid]="uservcsl.invalid && uservcsl.touched">
+            <small [class.d-none]="uservcsl.valid || uservcsl.untouched" class="text-danger" >Enter vcsl registration number !</small>
+          </div>
+
+          <div class="form-group">
+            <label for="email">email</label>
+            <input type="email" id= "inp" class="form-control" name="useremail" [(ngModel)]="veterinarian.email" required #useremail = "ngModel"
+            [class.is-invalid]="useremail.invalid && useremail.touched">
+            <small [class.d-none]="useremail.valid || useremail.untouched" class="text-danger" >Enter a email !</small>
+          </div>
+
+          <div class="form-group">
+            <label for="upassword">Password</label>
+            <input type="password" id= "inp" class="form-control" name="userpassword" [(ngModel)]="veterinarian.password" required #userpassword = "ngModel"
+            [class.is-invalid]="userpassword.invalid && userpassword.touched">
+            <small [class.d-none]="userpassword.valid || userpassword.untouched" class="text-danger" >Enter a Password !</small>
+          </div>
+
+          <div class="form-group">
+            <label for="upasswordconfirm">Confirm Password</label>
+            <input type="password" id= "inp" class="form-control" name="userpasswordconfirm" (ngModel)="veterinarian.password" required #userpasswordconfirm = "ngModel"
+            [class.is-invalid]="userpasswordconfirm.invalid && userpasswordconfirm.touched">
+            <small [class.d-none]="(userpasswordconfirm.value == userpassword.value) || userpasswordconfirm.untouched" class="text-danger" >Password and Confirm Password are not match.check again !</small>
+          </div>
+
+          <table width ="100%">
+            <tr>
+              <th width = "50%"><button [disabled] ="vetsignupform.form.invalid" type="submit" class="btn btn-info">Register</button></th>
+              <th width = "50%"><button id="btnid" class="float-right"><small id="inp" [routerLink]="['/vetlogin']">Alreay registered ? login here</small></button></th>
+            </tr>
+          </table>
+
+        
+      </form>
+      <br>
+    </div>
+    </div>
+    
+    </body>

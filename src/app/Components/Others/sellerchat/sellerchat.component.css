@@ -1,0 +1,151 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	min-height: 100vh;
+	width: 100%;
+    align-items: center;
+	justify-content: center;
+    text-align: center;
+
+}
+
+.chat-applicaton{
+    max-width: 900px;
+	min-height: 400px;
+    margin: 170px  389px auto;
+    border: 1px solid #ddd;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+	border-top-right-radius:  95px;
+	border-bottom-left-radius:  95px;
+	position: fixed ;
+
+}
+
+#chat-window{
+    height: 400px;
+	width: 600px;
+    overflow: auto;
+    background: #f9f9f9;
+	background-image:url("src/assets/image/colorprint.jpg");
+	border-top-right-radius:  108px;
+	border-bottom-left-radius:  96px; 
+	
+}
+
+.below{
+	display: flex;
+}
+
+
+.toggler{
+
+    display: flex; 
+	position: fixed; 
+	margin: 40px 130px auto;
+}
+
+#userName{
+	font-size: xx-large;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    color: rgb(8, 8, 8);
+    text-shadow: 1px 1px 1px #919191,
+    1px 2px 1px #919191,
+    1px 3px 1px #919191,
+    1px 4px 1px #919191,
+    1px 5px 1px #919191,
+    1px 6px 1px #919191,
+    1px 7px 1px #919191,
+    1px 8px 1px #919191,
+    1px 9px 1px #919191,
+    1px 10px 1px #919191;
+}
+
+ #uId{
+    color: rgb(253, 9, 9);
+}
+
+.h2{
+    
+    font-size: 4rem;
+    font-weight: 500;
+    font-size: xx-large;
+    margin-bottom: 60px;
+    margin-top: 0px;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    text-shadow: 1px 1px 1px #919191,
+    1px 2px 1px #919191,
+    1px 3px 1px #919191,
+    1px 4px 1px #919191,
+    1px 5px 1px #919191,
+    1px 6px 1px #919191,
+    1px 7px 1px #919191,
+    1px 8px 1px #919191,
+    1px 9px 1px #919191,
+    1px 10px 1px #919191;
+    
+  
+}
+
+#output{
+    /* margin-top: auto;
+          margin-bottom: 20px;
+          min-width: 1px;
+          margin-right: 315px;
+          border-radius: 25px;
+          background-color: #78e08f;
+          padding: 10px;
+          position: relative; */
+    
+          box-sizing: border-box;
+          width: 15em;
+          height: 3em;
+          font-size: 20px;
+          border-radius: .5em;
+          margin: .5em;
+          color: blueviolet;
+          line-height: 3em;
+          font-family: open sans-serif;
+          box-shadow: 0 0 1 em;
+
+  }
+
+
+/*
+
+
+
+
+
+button{
+    background: #c98d0d;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 0 0 2px 2px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #835b05;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 0 0 2px 2px;
+    cursor: pointer;
+}
+
+
+
+
+ */

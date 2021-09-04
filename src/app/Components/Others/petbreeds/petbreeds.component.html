@@ -1,0 +1,35 @@
+
+    <section>
+        <div class="container-fluid">
+          <div class="container">
+            <div class="row">
+
+              <div *ngFor="let breed of breeds">
+              <div class="col-sm-4">
+                <div class="card card_green text-center">
+                  <div class="title">
+                    <i class="fa fa-paw" aria-hidden="true"></i>
+                    <h2>{{breed.breedname}}</h2>
+                  </div>
+                  <br>
+                  <a (click)="openScrollableContent(longContent,breed.id)">View details</a>
+                </div>
+              </div>
+            </div>
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <ng-template #longContent let-modal>
+      <div class="modal-body">
+
+        <h2>{{breedone.description}}</h2>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+      </div>
+    </ng-template>

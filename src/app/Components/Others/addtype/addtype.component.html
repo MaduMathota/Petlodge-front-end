@@ -1,0 +1,30 @@
+
+<body>
+  
+    <div class="bg">
+    <div class="formcontainer" >
+    <span style="text-align: center"> <h2>Pet type details</h2></span>
+
+    <form #typeform= "ngForm" (ngSubmit)="addType()">
+     
+      
+      <div class="form-group">
+        <label for="pname">Type Id</label>
+        <input type="text" id = "inp" class="form-control" name="tid" [(ngModel)]="type.typeid" required #tid = "ngModel" 
+        [class.is-invalid]="tid.invalid && tid.touched">
+        <small [class.d-none]="tid.valid || tid.untouched" class="text-danger" >pet type id here !</small>
+    </div>
+
+      <div class="form-group">
+          <label for="pname">Type Name</label>
+          <input type="text" id = "inp" class="form-control" name="tname" [(ngModel)]="type.typename" required #tname = "ngModel" 
+          [class.is-invalid]="tname.invalid && tname.touched">
+          <small [class.d-none]="tname.valid || tname.untouched" class="text-danger" >you should enter pet type here !</small>
+      </div>
+
+
+        <button [disabled] ="typeform.form.invalid" type="submit" class="btn btn-info">Add item</button>
+      </form>
+    </div>
+    </div>
+    </body>

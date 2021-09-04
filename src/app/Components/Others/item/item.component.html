@@ -1,0 +1,73 @@
+
+<body>
+  
+    <div class="bg">
+    <div class="formcontainer" >
+    <span style="text-align: center"> <h2>Item details</h2></span>
+
+    <form #itemform= "ngForm" (ngSubmit)="itemAdd()">
+     
+      
+      <div class="form-group">
+        <label for="pname">Seller Id</label>
+        <input type="text" id = "inp" class="form-control" name="sid" [(ngModel)]="item.sellerid" required #sid = "ngModel" 
+        [class.is-invalid]="sid.invalid && sid.touched">
+        <small [class.d-none]="sid.valid || sid.untouched" class="text-danger" >your seller id here !</small>
+    </div>
+
+      <div class="form-group">
+          <label for="pname">Product Name</label>
+          <input type="text" id = "inp" class="form-control" name="iname" [(ngModel)]="item.name" required #iname = "ngModel" 
+          [class.is-invalid]="iname.invalid && iname.touched">
+          <small [class.d-none]="iname.valid || iname.untouched" class="text-danger" >you should enterproduct name !</small>
+      </div>
+
+        <div class="form-group">
+          <label for="pprice">Price</label>
+          <input type="text" id= "inp" class="form-control" name="iprice" [(ngModel)]="item.price" required #iprice = "ngModel"
+          [class.is-invalid]="iprice.invalid && iprice.touched">
+          <small [class.d-none]="iprice.valid || iprice.untouched" class="text-danger" > Enter item price !</small>
+        </div>
+
+        <div class="form-group">
+            <label for="descrip">Discription</label>
+            <input type="text" id= "inp" class="form-control" name="idisc" [(ngModel)]="item.description" required #idisc = "ngModel"
+            [class.is-invalid]="idisc.invalid && idisc.touched">
+            <small [class.d-none]="idisc.valid || idisc.untouched" class="text-danger" > Enter item discription briefly !</small>
+          </div>
+
+          <div class="form-group">
+            <label for="qnt">Quantity</label>
+            <input type="text" id= "inp" class="form-control" name="iquantity" [(ngModel)]="item.quantity" required #iquantity = "ngModel"
+            [class.is-invalid]="iquantity.invalid && iquantity.touched">
+            <small [class.d-none]="iquantity.valid || iquantity.untouched" class="text-danger" >Enter item quantity !</small>
+          </div>
+
+          <div class="form-group">
+            <select name="ictgory"  class="form-control" name="ictgry" [(ngModel)]="item.category" required #ictgry = "ngModel"
+            [class.is-invalid]="ictgry.invalid && ictgry.touched">
+            <option [ngValue]="undefined" hidden>Select Category</option>
+              <option >pet feeder</option>
+              <option >pet accessories</option>
+              <option >pet cages and carrier</option>
+              <option >pet toy</option>
+              <option >pet grooming</option>
+              <option >pet leash</option>
+            </select>
+            <small [class.d-none]="ictgry.valid || ictgry.untouched" class="text-danger" >Select item Category !</small>
+          </div>
+
+            <div class="form-group">
+                <input type="file" (change)="onFileChanged($event)">
+        
+            </div>
+            <!-- <div class="col-md-6">
+                <input type="button" (click)="onUpload()" value="upload">
+            </div> -->
+
+        <button [disabled] ="itemform.form.invalid" type="submit" class="btn btn-info">Add item</button>
+      </form>
+    </div>
+    </div>
+    </body>
+      <!--netstat -ano|findstr :4200           taskkill /PID 13392 /F  -->

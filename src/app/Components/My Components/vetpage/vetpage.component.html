@@ -1,0 +1,141 @@
+<!--   
+            <div class="navigation">
+                <nav>
+              <ul class="nav-type">
+                <li><a href [routerLink]="['/adminpage']" class="active">Admin</a></li>
+                <li><a href [routerLink]="['/adminpetregisterpage']"  class="active1">PetRegistration</a></li>
+                <li><a href [routerLink]="['/adminpetpage']"  class="active1">Pets</a></li>
+                <li><a href [routerLink]="['/adminpetownerpage']"  class="active1">Petowners</a></li>
+                <li><a href [routerLink]="['/admincaretakerpage']"  class="active2">Caretakers</a></li>
+                <li><a href [routerLink]="['/adminjobpage']" class="active">AssignedJobs</a></li>
+                <li><a href [routerLink]="['/adminstoragekennel']"  class="active3">Storage</a></li>
+                <li><a href [routerLink]="['/adminveterinarianpage']" class="active">Veterinarians</a></li>
+                <li><a href [routerLink]="['/adminsellerpage']" class="active">Sellers</a></li>
+                <li><a href [routerLink]="['/adminsellerpage']" class="active">SellingProducts</a></li>
+              </ul>
+            </nav>
+            </div> -->
+
+<div class="row">
+
+  <div class="col-md-2">
+
+    <!-- <small class="text-danger">{{errormessege}}</small> -->
+     <br>
+    <div class="form-group">
+        <label for="UId">User Id</label>
+        <input type="text" id = "inp" class="form-control" name="userid" [(ngModel)]="veterinarian.id" required #userid = "ngModel" 
+        [class.is-invalid]="userid.invalid && userid.touched">
+        <small [class.d-none]="userid.valid || userid.untouched" class="text-danger" >you should enter your user Id !</small>
+    </div>
+
+    <br>
+      <div class="form-group">
+        <label for="uname">Name</label>
+        <input type="text" id= "inp" class="form-control" name="username" [(ngModel)]="veterinarian.name" required #username = "ngModel"
+        [class.is-invalid]="username.invalid && username.touched">
+        <small [class.d-none]="username.valid || username.untouched" class="text-danger" > Enter your Name !</small>
+      </div>
+
+      <br>
+      <div class="form-group">
+        <label for="uavailble">Availability</label>
+        <input type="text" id= "inp" class="form-control" name="useravailability" [(ngModel)]="veterinarian.status" required #useravailability = "ngModel"
+        [class.is-invalid]="useravailability.invalid && useravailability.touched">
+        <small [class.d-none]="useravailability.valid || useravailability.untouched" class="text-danger" > Enter Availability !</small>
+      </div>
+
+      <br>
+      <div class="form-group">
+          <label for="uaddress">Address</label>
+          <input type="text" id= "inp" class="form-control" name="useraddress" [(ngModel)]="veterinarian.address" required #useraddress = "ngModel"
+          [class.is-invalid]="useraddress.invalid && useraddress.touched">
+          <small [class.d-none]="useraddress.valid || useraddress.untouched" class="text-danger" > Enter your Current Address !</small>
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="ucontact">Contact No</label>
+          <input type="text" id= "inp" class="form-control" name="usercontactno" [(ngModel)]="veterinarian.contactno" required #usercontactno= "ngModel"
+          [class.is-invalid]="usercontactno.invalid && usercontactno.touched">
+          <small [class.d-none]="usercontactno.valid || usercontactno.untouched" class="text-danger" >Enter your phone number !</small>
+        </div>
+        
+        <br>
+        <div class="form-group">
+          <label for="vcslreg">VCSL registration no</label>
+          <input type="text" id= "inp" class="form-control" name="uservcsl" [(ngModel)]="veterinarian.vcslregistrationno" required #uservcsl= "ngModel"
+          [class.is-invalid]="uservcsl.invalid && uservcsl.touched">
+          <small [class.d-none]="uservcsl.valid || uservcsl.untouched" class="text-danger" >Enter vcsl registration number !</small>
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="email">email</label>
+          <input type="email" id= "inp" class="form-control" name="useremail" [(ngModel)]="veterinarian.email" required #useremail = "ngModel"
+          [class.is-invalid]="useremail.invalid && useremail.touched">
+          <small [class.d-none]="useremail.valid || useremail.untouched" class="text-danger" >Enter a email !</small>
+        </div>
+
+        <br>
+        <div class="form-group" >
+          <label for="upassword">Password</label>
+          <input type="password" id= "inp" class="form-control" name="userpassword" [(ngModel)]="veterinarian.password" required #userpassword = "ngModel"
+          [class.is-invalid]="userpassword.invalid && userpassword.touched">
+          <small [class.d-none]="userpassword.valid || userpassword.untouched" class="text-danger" >Enter a Password !</small>
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="upasswordconfirm">Confirm Password</label>
+          <input type="password" id= "inp" class="form-control" name="userpasswordconfirm" (ngModel)="veterinarian.password" required #userpasswordconfirm = "ngModel"
+          [class.is-invalid]="userpasswordconfirm.invalid && userpasswordconfirm.touched">
+          <small [class.d-none]="(userpasswordconfirm.value == userpassword.value) || userpasswordconfirm.untouched" class="text-danger" >Password and Confirm Password are not match.check again !</small>
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-md-5"><button class="btn btn-primary" (click)="updatevet()">Update</button></div>
+          <!-- <div class="col-md-7"><button class="btn btn-danger" (click)="changepsw()" >Change password</button></div> -->
+        </div>
+        <br>
+ 
+
+</div>
+
+  <div class="col-md-10">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Id</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>
+            <div class="navigationthree">
+              <nav>
+            <ul class="nav-type" id="ulthree">
+              <li><a (click)="govideocall()" class="active">Video Call with Petowner</a></li>
+            </ul>
+            </nav>
+            </div>
+            Pet Id
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let apt of appointments" (click)="petdetails(apt.appointPetid)">
+          <td>{{apt.id}}</td>
+          <td>{{apt.date}}</td>
+          <td>{{apt.time}}</td>
+          <td>{{apt.appointPetid}}</td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+</div>
+
+<div class="containerfloat">
+  <button id="btnfloat" class="add-to-cart" (click)="logout()">logout</button>
+</div>

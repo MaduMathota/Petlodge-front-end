@@ -1,0 +1,83 @@
+
+  <app-nav></app-nav>
+  
+  <!-- <div class="container"> -->
+    <div class="card" style="width: 120rem;">
+    <div class="header">
+      <br>
+      <!-- <div class="header-logo">
+        PetLodge Products
+      </div> -->
+    </div>
+    
+    
+    <div class="product" *ngFor="let item of items">
+      <div class="product-photo">
+        <div class="card" style="width: 60rem;">
+        <!-- <img src="{{item.picByte}}"> -->
+        <img src="{{item.picByte}}">
+      </div>
+      </div>
+
+
+      <div class="product-detail">
+        
+        <h2 style="color: rgba(0, 0, 0, 0.945);">{{item.name}}</h2>
+        <!-- <p class="product__title">{{item.description}} </p> -->
+        <div class="product__title" style="color: rgb(0, 0, 0);font-size: 3vh;">{{item.description}} </div>
+        <!-- <div style="font-size: 6vh;color: rgb(255, 0, 0);">{{item.price}}</div> -->
+        <button type="button" class="btn btn-danger"> {{item.price}}</button>
+        <br>
+        
+        <!-- <div style="color: rgb(0, 0, 0);font-size: 4vh;">{{seller.sellerName}}</div>
+        <div style="color: rgb(0, 0, 0);font-size: 5vh;">{{seller.sellerContactNo}}</div> -->
+        <div style="color: rgb(0, 0, 0);font-size: 3vh;"> For sale by <b>{{seller.sellerName}}</b></div>
+
+        <br>
+
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Contact Seller
+        </a>
+
+
+
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <div style="color: rgb(0, 0, 0);font-size: 3vh;">{{seller.sellerName}}</div>
+            <div style="color: rgb(0, 0, 0);font-size: 3vh;">{{seller.sellerContactNo}}</div>
+          </div>
+        </div>
+        
+        <br>
+        
+        
+        
+        
+        
+        <div class="product__color">
+          <form action="">
+            <fieldset>
+              <input type="radio" name="color">
+              <label for="straw">
+                <i class="ion-android-done"></i>
+              </label>
+            </fieldset>
+            <fieldset>
+              <input type="radio" name="color">
+              <label for="brown">
+                <i class="ion-android-done"></i>
+              </label>
+            </fieldset>
+          </form>
+        </div>
+        <a class="product__button" onClick="buttonAnimate()">
+          <span>Only {{item.quantity}} items available</span>
+          <span>Success</span>
+        </a>
+        
+      </div>
+      
+    </div>
+    <br>
+  </div>
+  

@@ -1,0 +1,103 @@
+<div class="navigationtwo">
+  <nav>
+<ul class="nav-type" id="ultwo">
+  <li><a (click)="govideocall()" class="active">Video Call with doctor</a></li>
+</ul>
+</nav>
+</div>
+
+<div class="formcontainer" *ngIf="formmode">
+
+    <span style="text-align: center"> <h2>Channeling Form</h2></span>
+
+    <form #channelingform = "ngForm" (ngSubmit)="petAppointment()">
+      <!-- <small class="text-danger">{{errormessege}}</small> -->
+      
+      
+
+      <div class="form-group">
+        <label for="uname">Pet Name</label>
+        <input type="text" id= "inp" class="form-control" name="petname" [(ngModel)]="appointmentpet.petname" required #petname = "ngModel"
+        [class.is-invalid]="petname.invalid && petname.touched">
+        <small [class.d-none]="petname.valid || petname.untouched" class="text-danger" > Enter Pet Name !</small>
+      </div>
+
+      <div class="form-group">
+        <label for="utype">Pet Type</label>
+        <input type="text" id= "inp" class="form-control" name="pettype" [(ngModel)]="appointmentpet.type" required #pettype = "ngModel"
+        [class.is-invalid]="pettype.invalid && pettype.touched">
+        <small [class.d-none]="pettype.valid || pettype.untouched" class="text-danger" > Enter pet type !</small>
+      </div>
+
+      <div class="form-group">
+          <label for="ubreed">Breed</label>
+          <input type="text" id= "inp" class="form-control" name="petbreed" [(ngModel)]="appointmentpet.breed" required #petbreed = "ngModel"
+          [class.is-invalid]="petbreed.invalid && petbreed.touched">
+          <small [class.d-none]="petbreed.valid || petbreed.untouched" class="text-danger" > Enter pet breed !</small>
+        </div>
+
+        <div class="form-group">
+          <label for="umhitory">Medical History</label>
+          <input type="text" id= "inp" class="form-control" name="petmedicalhistory" [(ngModel)]="appointmentpet.medicalhistory" required #petmedicalhistory= "ngModel"
+          [class.is-invalid]="petmedicalhistory.invalid && petmedicalhistory.touched">
+          <small [class.d-none]="petmedicalhistory.valid || petmedicalhistory.untouched" class="text-danger" >enter pet's Medical history !</small>
+        </div>
+
+        <div class="form-group">
+          <label for="upcolor">Pet Body Color</label>
+          <input type="text" id= "inp" class="form-control" name="petcolor" [(ngModel)] ="appointmentpet.color" required #petcolor = "ngModel"
+          [class.is-invalid]="petcolor.invalid && petcolor.touched">
+          <small [class.d-none]="petcolor.valid || petcolor.untouched" class="text-danger" >Enter pet color !</small>
+        </div>
+
+        <div class="form-group">
+          <label for="uecolor">Eye color</label>
+          <input type="text" id= "inp" class="form-control" name="peteyecolor" [(ngModel)]="appointmentpet.eyecolor" required #peteyecolor= "ngModel"
+          [class.is-invalid]="peteyecolor.invalid && peteyecolor.touched">
+          <small [class.d-none]="peteyecolor.valid || peteyecolor.untouched" class="text-danger" >Enter pet eyecolor !</small>
+        </div>
+
+        <div class="form-group">
+          <label for="upownername">Petowner Name</label>
+          <input type="text" id= "inp" class="form-control" name="petownername" [(ngModel)]="appointmentpet.petownername" required #petownername = "ngModel"
+          [class.is-invalid]="petownername.invalid && petownername.touched">
+          <small [class.d-none]="petownername.valid || petownername.untouched" class="text-danger" > Enter Petowner Name !</small>
+        </div>
+
+        <div class="form-group">
+          <label for="upownnercn">Petowner Contact No</label>
+          <input type="text" id= "inp" class="form-control" name="petownercontactno" [(ngModel)]="appointmentpet.petownercontact" required #petownercontactno = "ngModel"
+          [class.is-invalid]="petownercontactno.invalid && petownercontactno.touched">
+          <small [class.d-none]="petownercontactno.valid || petownercontactno.untouched" class="text-danger" > Enter Contact No !</small>
+        </div>
+        
+        <br>
+        <p style="color: rgb(23, 9, 156);">We'll show your appoinment number.please wait about 20 seconds after submit</p>
+        <button [disabled] ="channelingform.form.invalid" type="submit" class="btn btn-info">Submit to channel</button>
+      </form>
+      </div>
+      <br>
+
+        <section *ngIf="appointmode">
+          <div class="container-fluid">
+            <div class="container">
+              <div class="row">
+      
+                <div class="col-sm-4">
+                  <div class="card card_red text-center">
+                    <div class="title">
+                      <i class="fa fa-plus" aria-hidden="true"></i>
+                      <h4 style="color: aliceblue;">Your Appointment is ready</h4>
+                    </div>
+                    <div class="price">
+                      <h3 style="color: aliceblue;">Appointment Number is</h3>
+                      <h1 style="color: rgb(90, 10, 117);">{{appointment.id}}</h1>
+                    </div>
+                    <a (click) ="goback()">back to home</a>
+                  </div>
+              </div>
+                
+              </div>
+            </div>
+          </div>
+        </section>

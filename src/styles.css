@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+
+.containerfloat {
+    right: 2vw;
+    bottom: 3vh;
+
+    position: absolute;
+  }
+  
+  #btnfloat {
+    background-color: rgb(107, 13, 231);
+    border: none;
+    transition: background-color 0.2s linear, color 0.2s linear;
+  }
+
+  #btnfloat:hover {
+    background-color: rgb(27, 114, 245);
+  }
+
+  #btnfloat:focus {
+    outline: none;
+  }
+  .add-to-cart {
+    animation: shadowFloat 2.0s linear alternate infinite;
+    font-family: FontAwesome;
+    border-radius: 50px;
+    color: #fff;
+    padding: 1vw 1vw;
+    text-shadow: 0 1px 1px #0aa;
+  }
+  @keyframes shadowFloat {
+    0% {
+      box-shadow: 0 20px 40px #9012f7;
+      transform: translateY(-3px);
+      background-color: rgb(35, 118, 241);
+   }
+    100% {
+      box-shadow: 0 10px 10px #a1a1a1;
+      transform: translateY(3px);
+      background-color: rgb(240, 62, 247);
+   }
+  }
